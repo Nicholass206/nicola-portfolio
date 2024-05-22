@@ -81,7 +81,6 @@
 .tech-icon img{
     width: 3rem;
     height: auto;
-    transition: all 0.3s ease;
 }
 
 .hero-img > div > img:hover,

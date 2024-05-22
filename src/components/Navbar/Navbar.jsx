@@ -33,11 +33,13 @@ const Navbar = () => {
                     </button>
                    
                 </ul>
-                <button className="menu-btn" onClick={toggleMenu}>
-                <span class="menu-img"
-                ><img src="./images/menu.svg" alt=""/>
-                {openMenu ? "" : ""}
-                </span>
+                <button className="menu-btn" onClick={()=>{}}>
+                    <span 
+                    class={"material-symbols-outlined"}
+                    style={{fontSize:"1.8rem"}}
+                    >
+                        menu
+                    </span>
                 </button>
             </div>
         </nav>
