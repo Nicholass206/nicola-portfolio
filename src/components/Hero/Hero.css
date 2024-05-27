@@ -85,7 +85,7 @@
 }
 
 .hero-img > div > img:hover,
-.tech-icon  {
+.tech-icon:hover  {
     background: #6852ba;
     transition: all 0.2s ease-in;
     
