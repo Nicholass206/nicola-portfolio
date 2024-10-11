@@ -28,6 +28,7 @@ export const SKILLS =[
             {skill : "Communication", percentage:"85%"},
             {skill : "Presentation", percentage:"85%"},
             {skill : "Problem-Solving", percentage:"75%"},
+            {skill : "Time Management", percentage:"80%"},
 
         ],
     },
@@ -39,14 +40,10 @@ export const SKILLS =[
             {skill : "Git & Github", percentage:"70%"},
             {skill : "Postman", percentage:"65%"},
             {skill : "Responsive Design", percentage:"75%"},
+            {skill : "Canva",percentage:"80%"},
 
         ],
     },
-
-
-
-
-
-
-
 ]
+
+

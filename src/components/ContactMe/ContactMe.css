@@ -1,6 +1,7 @@
 .contact-container{
     margin: 4rem 0;
     position: relative;
+    
 
 }
 
@@ -10,10 +11,27 @@
     margin-bottom: 3rem;
 }
 
-.contact-content{
+.contact-content {
     display: flex;
-    gap: 3rem;
+    flex-direction: row;
+    gap: 3rem; 
+    justify-content: center;
+    align-items: center;
 }
+
+
+.contact-info-card {
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+    border-radius: 8px; 
+}
+
+.contact-info-card:hover {
+    background-color: #7e61e7;
+    cursor: pointer;
+}
+
+
 
 @media (max-width:768px){
     .contact-content{

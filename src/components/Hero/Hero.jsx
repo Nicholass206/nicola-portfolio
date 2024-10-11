@@ -3,7 +3,7 @@ import './Hero.css'
 
 const Hero = () => {
   return (
-    <section className="hero-container">
+    <section id="home" className="hero-container">
         <div className="hero-content">
             <h2>Building Websites & Web Applications</h2>
             <p>Junior Front-End Developer | Hunger Learner | Passionate </p>
@@ -12,24 +12,24 @@ const Hero = () => {
         <div>
             
             <div className="tech-icon">
-                <img src="./images/react1.png" alt="" />
+                <img src={`${process.env.PUBLIC_URL}/images/react1.png`} alt="" />
             </div>
             
-                <img src="./images/profile.jpg" alt="" />
+                <img src={`${process.env.PUBLIC_URL}/images/profile.jpg`} alt="" />
             </div>
             
               <div>
               <div className="tech-icon">
-                <img src="./images/html2.png" alt="" />
+                <img src={`${process.env.PUBLIC_URL}/images/html2.png`} alt="" />
               </div>
               <div className="tech-icon">
-                <img src="./images/css-icon.png" alt=""/>
+                <img src={`${process.env.PUBLIC_URL}/images/css-icon.png`} alt=""/>
               </div>
               <div className="tech-icon">
-                <img src="./images/js.png" alt="" />
+                <img src={`${process.env.PUBLIC_URL}/images/js.png`} alt="" />
               </div>
               <div className="tech-icon">
-                <img src="./images/laravel.png" alt="" />
+                <img src={`${process.env.PUBLIC_URL}/images/laravel.png`} alt="" />
             </div>
             </div>
         

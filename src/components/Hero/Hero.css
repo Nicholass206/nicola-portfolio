@@ -68,8 +68,8 @@
 }
 
 .tech-icon{
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +81,7 @@
 
 .tech-icon img{
     width: 3rem;
-    height: auto;
+    height: 3rem;
 }
 
 .hero-img > div > img:hover,

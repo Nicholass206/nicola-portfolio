@@ -8,19 +8,19 @@ const MobileNavbar = ({isOpen, toggleMenu}) => {
         onClick={toggleMenu}
         >
             <div className="mobile-menu-container">
-                <img src=".images/menu.svg" alt="" className="logo" />
+                <img src={`${process.env.PUBLIC_URL}/images/menu_20dp.svg`} alt="" className="logo" />
                 <ul>
                     <li>
-                        <a href="#" className="menu-item">Home</a>
+                        <a href="#home" className="menu-item">Home</a>
                     </li>
                     <li>
-                        <a href="#" className="menu-item">Skills</a>
+                        <a href="#skills" className="menu-item">Skills</a>
                     </li>
                     <li>
-                        <a href="#" className="menu-item">Work Experience</a>
+                        <a href="#projects" className="menu-item">Projects</a>
                     </li>
                     <li>
-                        <a href="#" className="menu-item">About</a>
+                        <a href="#contact-me" className="menu-item">Contact Me</a>
                     </li>
                 </ul>
                 
