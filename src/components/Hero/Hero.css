@@ -1,0 +1,296 @@
+/* Existing Styles */
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-container::after,
+.hero-container::before {
+    content: "";
+    width: 28.125rem;
+    height: 28.125rem;
+    border-radius: 28.125rem;
+    position: absolute;
+    z-index: -1;
+    filter: blur(255px);
+    animation: pulse 6s infinite ease-in-out;
+}
+
+.hero-container::after {
+    top: -3rem;
+    left: -5rem;
+}
+
+.hero-container::before {
+    bottom: 2rem;
+    right: 0rem;
+}
+
+.hero-content {
+    flex: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 1s ease-in-out forwards 0.5s;
+}
+
+.hero-content h2 {
+    font-size: 3.8rem;
+    font-weight: 600;
+    line-height: 5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    width: 80%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+.hero-img {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: scaleIn 1s ease-in-out forwards 1s;
+}
+
+.hero-img > div {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+.hero-img > div > img {
+    width: 25rem;
+    transition: all 0.3s ease;
+}
+
+.tech-icon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.65rem;
+    border: 1.5px solid #6852ba;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 0.8s ease-in-out forwards 1.2s;
+}
+.tech-icon-1 {
+    position: absolute;
+    top: 20px; 
+    left: 30px; 
+}
+
+.tech-icon-2 {
+    position: absolute;
+    top: 60px; 
+    right: 60px;
+}
+
+.tech-icon-3 {
+    position: absolute;
+    bottom: 170px; 
+    left: -20px; 
+}
+
+.tech-icon-4 {
+    position: absolute;
+    bottom: 70px; 
+    right: 30px; 
+}
+
+.tech-icon-5 {
+    position: absolute;
+    bottom: 15px; 
+    left: 30px; 
+    transform: translateX(-50%);
+}
+
+.tech-icon-6 {
+    position: absolute;
+    top: 190px; 
+    right: 20px; 
+}
+
+.tech-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.hero-img > div > img:hover,
+.tech-icon:hover {
+    background: #6852ba;
+    transition: all 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1025px) {
+    .hero-content h2 {
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        line-height: 1.6rem;
+    }
+
+    .hero-img > div > img {
+        width: 20rem;
+    }
+
+    .tech-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .tech-icon img {
+        width: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-img {
+        margin: 2rem 0 2rem 0;
+    }
+
+    .hero-container h2 {
+        margin-top: 3rem;
+    }
+
+    .hero-content h2,
+    .hero-content p {
+        width: auto;
+        text-align: center;
+    }
+
+    .hero-container::after,
+    .hero-container::before {
+        content: "";
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .hero-container::after {
+        top: 0rem;
+        left: 0rem;
+    }
+
+    .hero-container::before {
+        bottom: 2rem;
+        right: 0rem;
+    }
+}
+
+/* Typewriter effect */
+.typewriter-text {
+    display: inline-block; /* Ensures text occupies only its space */
+    font-size: 3.8rem;
+    font-weight: 600;
+    line-height: 5rem;
+    white-space: nowrap; /* Keeps text on a single line */
+    overflow: hidden; /* Hides text that hasn't been typed yet */
+    border-right: 3px solid black; /* Typewriter cursor */
+    animation: typing 3s steps(60) 1s 1 normal both, blink 0.75s step-end infinite;
+    width: 40ch; /* Predefine width to match the text length (adjust based on the characters) */
+    height: 5rem; /* Ensure height is fixed */
+}
+
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60ch; /* Adjust the width to match the full text length */
+    }
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+/* Adjust hero content to push the remaining text below the typewriter text */
+/* .hero-content p {
+    margin-top: 1rem;
+    /* width: 80%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+ } */
+

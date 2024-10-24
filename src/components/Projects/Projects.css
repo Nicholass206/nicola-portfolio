@@ -1,0 +1,28 @@
+.projects-container {
+    margin: 4rem 0;
+    position: relative;
+}
+
+.projects-container h5 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column; 
+    gap: 3rem; 
+}
+
+
+@media (max-width: 768px) {
+    .projects-content {
+        flex-direction: column-reverse;
+    }
+
+    .projects-container h5 {
+        font-size: 1.3rem;
+        margin-bottom: 0rem;
+    }
+}
