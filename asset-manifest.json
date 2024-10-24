@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Nicholass206/nicola-portfolio.git/static/css/main.85d0724f.css",
+    "main.js": "/Nicholass206/nicola-portfolio.git/static/js/main.938806e0.js",
+    "static/js/453.47f2fdfa.chunk.js": "/Nicholass206/nicola-portfolio.git/static/js/453.47f2fdfa.chunk.js",
+    "index.html": "/Nicholass206/nicola-portfolio.git/index.html",
+    "main.85d0724f.css.map": "/Nicholass206/nicola-portfolio.git/static/css/main.85d0724f.css.map",
+    "main.938806e0.js.map": "/Nicholass206/nicola-portfolio.git/static/js/main.938806e0.js.map",
+    "453.47f2fdfa.chunk.js.map": "/Nicholass206/nicola-portfolio.git/static/js/453.47f2fdfa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85d0724f.css",
+    "static/js/main.938806e0.js"
+  ]
+}
