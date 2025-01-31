@@ -17,7 +17,8 @@ export const SKILLS =[
         icon:"./images/backend.png",
         skills : [
             {skill : "Laravel", percentage:"55%"},
-            {skill : "ASP.NET", percentage:"60%"}
+            {skill : "ASP.NET", percentage:"60%"},
+            
         
         ],
     },
@@ -40,7 +41,7 @@ export const SKILLS =[
         skills : [
             {skill : "Git & Github", percentage:"70%"},
             {skill : "Postman", percentage:"65%"},
-            // {skill : "Responsive Design", percentage:"75%"},
+            {skill : "SQL Server", percentage:"55%"},
             {skill : "Canva",percentage:"80%"},
 
         ],
