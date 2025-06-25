@@ -1,7 +1,9 @@
 .container{
   max-width: 1300px !important;
   margin: 0 auto;   
-   position: relative;
+  position: relative;
+  
+
 }
 
 html{

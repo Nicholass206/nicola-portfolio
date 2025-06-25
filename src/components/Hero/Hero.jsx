@@ -12,7 +12,6 @@ const Hero = () => {
         <div className="hero-img">
             <div className="profile-container">
                 <img src={`${process.env.PUBLIC_URL}/images/profile-picture.png`} alt="Profile" className="profile-pic" />
-                {/* Icons will be positioned around this profile picture */}
                 <div className="tech-icons">
                     <div className="tech-icon tech-icon-1">
                         <img src={`${process.env.PUBLIC_URL}/images/react1.png`} alt="React" />

@@ -1,105 +1,105 @@
 .mobile-menu {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999 !important;
-    opacity: 0;
-    box-shadow: 0px 30px 80px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    transform: translateX(-100vw);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.3); 
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999 !important;
+  opacity: 0;
+  box-shadow: 0px 30px 80px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  transform: translateX(-100vw);
+}
+
+.mobile-menu-container {
+  width: 60vw;
+  height: 100vh;
+  background-color: var(--background-color); /* Use background color variable */
+  padding: 2rem;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu img {
+  margin-bottom: 3rem;
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  margin-left: -2rem;
+  margin-bottom: 3rem;
+}
+
+.menu-item {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color); /* Use text color variable */
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.menu-item::before {
+  content: "";
+  width: 2rem;
+  height: 0.2rem;
+  background: var(--gradient); /* Use gradient variable */
+  border-radius: 0.5rem;
+  position: absolute;
+  bottom: -0.6rem;
+  opacity: 0;
+  transform: translateX(-1.5rem);
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover::before {
+  width: 100%;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menu-item.active {
+  color: var(--primary-color); /* Use primary color variable */
+}
+
+.menu-item.active::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color); /* Use text color variable */
+  background: var(--gradient); /* Use gradient variable */
+  padding: 0.6rem 2rem;
+  border: none;
+  outline: 1.5px solid transparent;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  color: var(--primary-color); /* Use primary color variable */
+  background: var(--background-color); /* Use background color variable */
+  outline: 1.5px solid var(--secondary-color); /* Use secondary color variable */
+}
+
+@media (max-width: 769px) {
+  .mobile-menu {
+    display: block;
   }
-  
-  .mobile-menu-container {
-    width: 60vw;
-    height: 100vh;
-    background-color: #342864;
-    padding: 2rem;
-  }
-  
-  .mobile-menu.active {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .mobile-menu img {
-    margin-bottom: 3rem;
-  }
-  
-  .mobile-menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    list-style: none;
-    margin-left: -2rem;
-    margin-bottom:3rem;
-  }
-  
-  .menu-item {
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #fff;
-    position: relative;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .menu-item::before {
-    content: "";
-    width: 2rem;
-    height: 0.2rem;
-    background: linear-gradient(90deg, #a993fe 0%, #7e61e7 100%);
-    border-radius: 0.5rem;
-    position: absolute;
-    bottom: -0.6rem;
-    opacity: 0;
-    transform: translateX(-1.5rem);
-    transition: all 0.3s ease;
-  }
-  
-  .menu-item:hover::before {
-    width: 100%;
-    transform: translateX(0);
-    opacity: 1;
-  }
-  
-  .menu-item.active {
-    color: #a993fe;
-  }
-  
-  .menu-item.active::before {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .contact-btn {
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background: linear-gradient(#a993fe 0%, #7e61e7 100%);
-    padding: 0.6rem 2rem;
-    border: none;
-    outline: 1.5px solid transparent;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .contact-btn:hover {
-    color: #a993fe;
-    background: #000;
-    outline: 1.5px solid #7e61e7;
-  }
-  
-  @media (max-width: 769px) {
-    .mobile-menu {
-      display: block;
-    }
-  }
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import MobileNavbar from "./MobileNavbar/MobileNavbar";
 
-const Navbar = () => {
+const Navbar = ({toggleTheme, isDarkMode}) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
 
@@ -36,6 +36,9 @@ const Navbar = () => {
       />
       <nav className="nav-wrapper">
         <div className="nav-content">
+        <button onClick={toggleTheme} className="theme-toggle">
+          {isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
+        </button>
           <ul>
             <li>
               <a
