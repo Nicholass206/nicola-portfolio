@@ -33,6 +33,17 @@ const MobileNavbar = ({ isOpen, toggleMenu, activeLink, setActiveLink }) => {
           </li>
           <li>
             <Link
+              to="about-me"
+              smooth={true}
+              duration={500}
+              className={`menu-item ${activeLink === "about-me" ? "active" : ""}`}
+              onClick={() => handleLinkClick("about-me")}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
               to="skills"
               smooth={true}
               duration={500}

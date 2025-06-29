@@ -50,6 +50,15 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
             </li>
             <li>
               <a
+                href="#about-me"
+                className={`menu-item ${activeLink === "about-me" ? "active" : ""}`}
+                onClick={() => setActiveLink("about-me")}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
                 href="#skills"
                 className={`menu-item ${activeLink === "skills" ? "active" : ""}`}
                 onClick={() => setActiveLink("skills")}

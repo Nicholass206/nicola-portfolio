@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import AboutMe from "./components/AboutMe/AboutMe";
 import Skills from "./components/Skills/Skills";
 import ContactMe from "./components/ContactMe/ContactMe";
 import Projects from "./components/Projects/Projects";
@@ -22,6 +23,7 @@ const App = () => {
       <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       <div className="container">
         <Hero />
+        <AboutMe />
         <Skills />
         <Projects />
         <ContactMe />
