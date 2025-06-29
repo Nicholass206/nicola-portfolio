@@ -20,10 +20,30 @@ const AboutMe = () => {
               maintaining excellent user experience.
             </p>
             <p>
-              When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and 
-              sharing knowledge with the developer community. I'm always excited to take on new challenges and 
+              When I'm not coding, I enjoy exploring new technologies. I'm always excited to take on new challenges and
               collaborate with like-minded individuals.
             </p>
+          </div>
+
+          <div className="typeracer-section">
+            <h4>Typing Skills</h4>
+            <div className="typeracer-badge">
+              <a
+                href="https://data.typeracer.com/pit/profile?user=nicholas206&ref=badge"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="typeracer-link"
+              >
+                <img
+                  src="https://data.typeracer.com/misc/badge?user=nicholas206"
+                  alt="TypeRacer.com scorecard for user nicholas206"
+                  className="typeracer-img"
+                />
+              </a>
+              <p className="typeracer-description">
+                I enjoy improving my typing speed and accuracy through TypeRacer challenges.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -36,7 +56,6 @@ const AboutMe = () => {
               "Detail-Oriented",
               "Problem-Solving Focused",
               "Continuous Learning",
-              "User-Centric Approach"
             ]}
           />
           
@@ -56,10 +75,8 @@ const AboutMe = () => {
             icon="🎨"
             title="Hobbies & Interests"
             items={[
-              "Open Source Contributing",
-              "Tech Blogging",
               "Music",
-              "Gaming",
+              "Geography & Football",
               "Learning New Languages"
             ]}
           />

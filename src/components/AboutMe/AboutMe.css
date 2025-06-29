@@ -63,6 +63,70 @@
   text-align: justify;
 }
 
+.typeracer-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.typeracer-section h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.typeracer-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(22, 17, 47, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.typeracer-badge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary-color);
+}
+
+.typeracer-link {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.typeracer-link:hover {
+  transform: scale(1.05);
+}
+
+.typeracer-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.typeracer-description {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-align: center;
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
 .about-cards {
   flex: 1;
   display: flex;
@@ -81,6 +145,14 @@
   
   .about-text p {
     font-size: 0.95rem;
+  }
+
+  .typeracer-section h4 {
+    font-size: 1.2rem;
+  }
+
+  .typeracer-badge {
+    padding: 1.2rem;
   }
 }
 
@@ -107,6 +179,24 @@
   .about-text p {
     text-align: left;
   }
+
+  .typeracer-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .typeracer-section h4 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .typeracer-badge {
+    padding: 1rem;
+  }
+
+  .typeracer-description {
+    font-size: 0.85rem;
+  }
   
   .about-container::after,
   .about-container::before {
@@ -131,5 +221,24 @@
   .about-text p {
     font-size: 0.9rem;
     line-height: 1.6;
+  }
+
+  .typeracer-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .typeracer-section h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .typeracer-badge {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .typeracer-description {
+    font-size: 0.8rem;
   }
 }
