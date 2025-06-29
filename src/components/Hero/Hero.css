@@ -254,6 +254,44 @@
     }
   }
   
+  @media (max-width: 480px) {
+    .hero-content h2 {
+      font-size: 2.5rem;
+      line-height: 3.2rem;
+    }
+  
+    .hero-content p {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+  
+    .hero-img > div > img {
+      width: 18rem;
+    }
+  
+    .tech-icon {
+      width: 3rem;
+      height: 3rem;
+    }
+  
+    .tech-icon img {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  
+    .typewriter-text {
+      font-size: 2.5rem;
+      line-height: 3.2rem;
+      width: 100%;
+      height: auto;
+    }
+  
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+  }
+  
   /* Typewriter effect */
   .typewriter-text {
     display: inline-block;

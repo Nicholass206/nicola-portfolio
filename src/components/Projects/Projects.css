@@ -26,3 +26,13 @@
         margin-bottom: 0rem;
     }
 }
+
+@media (max-width: 480px) {
+  .projects-container {
+    margin: 2rem 0;
+  }
+  
+  .projects-content {
+    gap: 2rem;
+  }
+}

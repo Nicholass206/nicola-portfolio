@@ -65,3 +65,23 @@
       margin-top: 1rem;
     }
   }
+
+  @media (max-width: 480px) {
+    .project-square {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .project-image {
+      width: 200px;
+      height: 160px;
+    }
+    
+    .project-title {
+      font-size: 1rem;
+    }
+    
+    .project-description {
+      font-size: 0.9rem;
+    }
+  }

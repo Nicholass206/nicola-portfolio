@@ -85,3 +85,20 @@
         padding: 0;
     }
 }
+
+@media (max-width: 480px) {
+  .skills {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+  }
+  
+  .skills-container {
+    margin: 2rem 0;
+  }
+  
+  .skills-container::after,
+  .skills-container::before {
+    width: 15rem;
+    height: 15rem;
+  }
+}
