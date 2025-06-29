@@ -10,19 +10,18 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
     setOpenMenu(!openMenu);
   };
 
-  const downloadButton = async () => {
-    const pdfUrl = "/images/Nicolas-Fadoul-Resume.pdf";
+  const downloadButton = () => {
     try {
-      const response = await fetch(pdfUrl);
-      const blob = await response.blob();
+
       const link = document.createElement("a");
-      link.href = window.URL.createObjectURL(blob);
-      link.setAttribute("download", "Nicolas-Fadoul-Resume.pdf");
+      link.href = "/images/Nicola-Fadoul-Resume.pdf";
+      link.download = "Nicola-Fadoul-Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
-      console.error("Error downloading the file", error);
+      console.error("Error downloading the file:", error);
+      window.open("/images/Nicola-Fadoul-Resume.pdf", "_blank");
     }
   };
 
@@ -76,9 +75,11 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
                 Contact Me
               </a>
             </li>
-            <button className="contact-btn" onClick={downloadButton}>
+            <div className="resume-dropdown">
+              <button className="contact-btn" onClick={downloadButton}>
               Resume
-            </button>
+              </button>
+            </div>
           </ul>
           <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
             <span className="material-symbols-outlined" style={{ fontSize: "1.8rem" }}>
