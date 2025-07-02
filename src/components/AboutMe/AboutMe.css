@@ -209,9 +209,14 @@
   .about-container {
     margin: 2rem 0;
   }
-  
+
   .about-content {
     gap: 2rem;
+    align-items: center;
+  }
+
+  .about-cards {
+    align-items: center;
   }
   
   .about-text h3 {

@@ -31,8 +31,9 @@
   .projects-container {
     margin: 2rem 0;
   }
-  
+
   .projects-content {
     gap: 2rem;
+    align-items: center;
   }
 }
