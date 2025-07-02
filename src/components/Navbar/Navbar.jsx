@@ -35,10 +35,11 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
       />
       <nav className="nav-wrapper">
         <div className="nav-content">
-        <button onClick={toggleTheme} className="theme-toggle">
-          {isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-        </button>
-          <ul>
+          <button onClick={toggleTheme} className="theme-toggle">
+            {isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
+          </button>
+          <div className="nav-right">
+            <ul>
             <li>
               <a
                 href="#home"
@@ -89,12 +90,13 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
               Resume
               </button>
             </div>
-          </ul>
-          <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
-            <span className="material-symbols-outlined" style={{ fontSize: "1.8rem" }}>
-              menu
-            </span>
-          </button>
+            </ul>
+            <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
+              <span className="material-symbols-outlined" style={{ fontSize: "1.8rem" }}>
+                menu
+              </span>
+            </button>
+          </div>
         </div>
       </nav>
     </>
