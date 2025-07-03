@@ -14,14 +14,14 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
     try {
 
       const link = document.createElement("a");
-      link.href = "/images/Nicola-Fadoul-Resume.pdf";
+      link.href = "https://nicholass206.github.io/nicola-portfolio/images/Nicola-Fadoul-Resume.pdf";
       link.download = "Nicola-Fadoul-Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
       console.error("Error downloading the file:", error);
-      window.open("/images/Nicola-Fadoul-Resume.pdf", "_blank");
+      window.open("https://nicholass206.github.io/nicola-portfolio/images/Nicola-Fadoul-Resume.pdf", "_blank");
     }
   };
 
