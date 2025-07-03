@@ -85,11 +85,11 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
                 Contact Me
               </a>
             </li>
-            <div className="resume-dropdown">
+            <li>
               <button className="contact-btn" onClick={downloadButton}>
-              Resume
+                Resume
               </button>
-            </div>
+            </li>
             </ul>
             <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
               <span className="material-symbols-outlined" style={{ fontSize: "1.8rem" }}>
