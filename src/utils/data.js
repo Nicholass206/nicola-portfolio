@@ -52,7 +52,7 @@ export const SKILLS =[
 export const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com/nicolafadoul",
+      url: "https://github.com/Nicholass206",
       icon: "./images/github-sign.png"
     },
     {
@@ -62,13 +62,13 @@ export const socialLinks = [
     },
     {
       name: 'Instagram',
-      url: 'https://instagram.com/nicolafadoul',
+      url: 'https://www.instagram.com/nicolafadoul/',
       icon: './images/instagram.png'
     },
-    {
-      name: 'Facebook',
-      url: 'https://facebook.com/nicolafadoul',
-      icon: './images/facebook.png'
-    }
+    // {
+    //   name: 'Facebook',
+    //   url: 'https://facebook.com/nicolafadoul',
+    //   icon: './images/facebook.png'
+    // }
 ]
 
