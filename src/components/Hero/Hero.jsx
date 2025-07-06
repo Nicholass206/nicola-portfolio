@@ -89,8 +89,8 @@ const Hero = () => {
             </div>
             <div className="tech-icon tech-icon-6">
               <img
-                src={`${process.env.PUBLIC_URL}/images/laravel-icon.png`}
-                alt="Laravel"
+                src={`${process.env.PUBLIC_URL}/images/netframework.jpg`}
+                alt="ASP.NET"
               />
             </div>
           </div>

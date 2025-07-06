@@ -43,9 +43,32 @@ export const SKILLS =[
             {skill : "Postman", percentage:"65%"},
             {skill : "SQL Server", percentage:"55%"},
             {skill : "Canva",percentage:"80%"},
+            {skill : "Jira",percentage:"75%"},
 
         ],
     },
 ]
 
+export const socialLinks = [
+    {
+      name: "GitHub",
+      url: "https://github.com/nicolafadoul",
+      icon: "./images/github-sign.png"
+    },
+    {
+      name: 'GitLab',
+      url: 'https://gitlab.com/nicolafadoul',
+      icon: './images/gitlab.png'
+    },
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/nicolafadoul',
+      icon: './images/instagram.png'
+    },
+    {
+      name: 'Facebook',
+      url: 'https://facebook.com/nicolafadoul',
+      icon: './images/facebook.png'
+    }
+]
 

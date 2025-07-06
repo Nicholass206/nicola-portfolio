@@ -6,9 +6,10 @@ import AboutMe from "./components/AboutMe/AboutMe";
 import Skills from "./components/Skills/Skills";
 import ContactMe from "./components/ContactMe/ContactMe";
 import Projects from "./components/Projects/Projects";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true); 
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -27,6 +28,7 @@ const App = () => {
         <Skills />
         <Projects />
         <ContactMe />
+        <Footer />
       </div>
     </>
   );
