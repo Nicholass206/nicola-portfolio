@@ -12,7 +12,7 @@
     width: 28.125rem;
     height: 28.125rem;
     border-radius: 28.125rem;
-    background: transparent; /* Use primary color variable */
+    background: transparent; 
     position: absolute;
     z-index: -1;
     filter: blur(255px);
@@ -25,7 +25,7 @@
   }
   
   .hero-container::before {
-    background: transparent; /* Use secondary color variable */
+    background: transparent; 
     bottom: 2rem;
     right: 0rem;
   }
@@ -42,7 +42,7 @@
     font-weight: 600;
     line-height: 5rem;
     margin-bottom: 1rem;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color); 
   }
   
   .hero-content p {
@@ -50,7 +50,7 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 2rem;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color); 
   }
   
   .hero-img {
@@ -84,7 +84,7 @@
     align-items: center;
     text-align: center;
     border-radius: 0.65rem;
-    border: 1.5px solid var(--primary-color); /* Use primary color variable */
+    border: 1.5px solid var(--primary-color);
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideUp 0.8s ease-in-out forwards 1.2s;
@@ -132,6 +132,13 @@
     right: 20px;
     animation: fadeSlideUp 0.8s ease-in-out forwards 2.2s, float 3.3s ease-in-out infinite 4.5s;
   }
+
+  .tech-icon-7{
+    position: absolute;
+    top: 140px;
+    left:35px;
+    animation: fadeSlideUp 0.8s ease-in-out forwards 2.2s, float 3.3s ease-in-out infinite 5.0s;
+  }
   
   .tech-icon img {
     width: 2.5rem;
@@ -140,7 +147,7 @@
   
   .hero-img > div > img:hover,
   .tech-icon:hover {
-    background: var(--primary-color); /* Use primary color variable */
+    background: var(--primary-color); 
     transition: all 0.2s ease-in;
   }
   

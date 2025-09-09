@@ -8,24 +8,33 @@
 
 /* Light Theme */
 .light-theme {
-  --background-color: #dbd4d4;
-  --text-color: #000000;
-  --primary-color: #007bff; 
-  --secondary-color: #0056b3; 
-  --navbar-background: rgba(255, 255, 255, 0.1); 
-  --navbar-blur: blur(50px); 
+  --background-color: #f2f4f6;
+  --text-color: #1f242b;
+  --primary-color: #264653;   
+  --secondary-color: #2a9d8f; 
+  --accent-color: #dba159;    
+  --navbar-background: rgba(255, 255, 255, 0.9);
+  --navbar-blur: blur(25px);
   --gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
-/* Default Dark Theme */
+
+/* Dark Theme */
 :root {
-  --background-color: #060417;
-  --text-color: #ffffff;
-  --primary-color: #a993fe; /* Purple for buttons and accents */
-  --secondary-color: #7e61e7; /* Darker purple for hover effects */
-  --navbar-background: rgba(0, 0, 0, 0.1); /* Semi-transparent black for navbar */
-  --navbar-blur: blur(50px); /* Blur effect for navbar */
+  --background-color: #101217;
+  --text-color: #e0e3e8;
+  --primary-color: #264653;
+  --secondary-color: #2a9d8f;
+  --accent-color: #dba159;
+  --navbar-background: rgba(16, 18, 23, 0.75);
+  --navbar-blur: blur(25px);
   --gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
+
+
+
+
+
+
 
 
 body {

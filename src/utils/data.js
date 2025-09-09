@@ -60,11 +60,11 @@ export const socialLinks = [
       url: 'https://gitlab.com/nicolafadoul',
       icon: './images/gitlab.png'
     },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/nicolafadoul/',
-      icon: './images/instagram.png'
-    },
+    // {
+    //   name: 'Instagram',
+    //   url: 'https://www.instagram.com/nicolafadoul/',
+    //   icon: './images/instagram.png'
+    // },
     // {
     //   name: 'Facebook',
     //   url: 'https://facebook.com/nicolafadoul',

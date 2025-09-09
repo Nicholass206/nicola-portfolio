@@ -44,7 +44,7 @@
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-color); /* Use text color variable */
+  color: var(--text-color);
   position: relative;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -54,7 +54,7 @@
   content: "";
   width: 2rem;
   height: 0.2rem;
-  background: var(--gradient); /* Use gradient variable */
+  background: var(--gradient);
   border-radius: 0.5rem;
   position: absolute;
   bottom: -0.6rem;
@@ -70,7 +70,7 @@
 }
 
 .menu-item.active {
-  color: var(--primary-color); /* Use primary color variable */
+  color: var(--primary-color); 
 }
 
 .menu-item.active::before {
@@ -84,8 +84,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-color); /* Use text color variable */
-  background: var(--gradient); /* Use gradient variable */
+  color: var(--text-color);
+  background: var(--gradient); 
   padding: 0.6rem 2rem;
   border: none;
   outline: 1.5px solid transparent;
@@ -95,9 +95,9 @@
 }
 
 .contact-btn:hover {
-  color: var(--primary-color); /* Use primary color variable */
-  background: var(--background-color); /* Use background color variable */
-  outline: 1.5px solid var(--secondary-color); /* Use secondary color variable */
+  color: var(--primary-color); 
+  background: var(--background-color);
+  outline: 1.5px solid var(--secondary-color); 
 }
 
 @media (max-width: 769px) {

@@ -15,6 +15,13 @@
     gap: 3rem; 
 }
 
+.project-highlight {
+    outline: 2px solid var(--primary-color);
+    border-radius: 0.75rem;
+    transition: outline-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 0 0.75rem rgba(98, 0, 255, 0.4);
+}
+
 
 @media (max-width: 768px) {
     .projects-content {

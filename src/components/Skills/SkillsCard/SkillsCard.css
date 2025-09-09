@@ -18,7 +18,7 @@
   .skills-card span {
     font-weight: 500;
     font-size: 1.3rem;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color);
   }
   
   .skill-icon {
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem; /* Center the icon */
+    margin: 0 auto 1rem;
   }
 
   .skill-icon img {

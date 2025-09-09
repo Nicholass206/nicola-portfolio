@@ -34,19 +34,20 @@
     object-fit: cover;
     border: none;
   }
+
   
   .project-title {
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.5rem;
     text-align: center;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color); 
   }
   
   .project-description {
     margin-left: 2rem;
     font-size: 1rem;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color); 
     flex: 1;
   }
   
