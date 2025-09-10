@@ -1,7 +1,8 @@
 import React from 'react';
 import './ProjectCard.css';
+import { Link } from 'react-router-dom';
 
-const ProjectCard = ({ imageUrl, title, description, reverse,ProjectUrl}) => {
+const ProjectCard = ({ imageUrl, title, description, reverse, ProjectUrl, detailsSlug }) => {
   return (
     <div className={`project-card ${reverse ? 'reverse' : ''}`}>
       <div className="project-square">
@@ -9,6 +10,11 @@ const ProjectCard = ({ imageUrl, title, description, reverse,ProjectUrl}) => {
         <h6 className="project-title">{title}</h6>
       </div>
       <p className="project-description">{description}</p>
+      {detailsSlug && (
+        <div className="project-actions">
+          <Link className="details-btn" to={`/projects/${detailsSlug}`}>Details</Link>
+        </div>
+      )}
     </div>
   );
 };

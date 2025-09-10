@@ -1,5 +1,5 @@
 .projects-container {
-    margin: 4rem 0;
+    margin: 4rem 0 5rem 0;
     position: relative;
 }
 
@@ -12,7 +12,7 @@
 .projects-content {
     display: flex;
     flex-direction: column; 
-    gap: 3rem; 
+    gap: 3.25rem; 
 }
 
 .project-highlight {
