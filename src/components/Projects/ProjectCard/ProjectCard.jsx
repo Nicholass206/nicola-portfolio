@@ -2,11 +2,11 @@ import React from 'react';
 import './ProjectCard.css';
 import { Link } from 'react-router-dom';
 
-const ProjectCard = React.memo(({ imageUrl, title, description, reverse, ProjectUrl, detailsSlug }) => {
+const ProjectCard = ({ imageUrl, title, description, reverse, ProjectUrl, detailsSlug }) => {
   return (
     <div className={`project-card ${reverse ? 'reverse' : ''}`}>
       <div className="project-square">
-       <a href={ProjectUrl} target='blank'> <img src={imageUrl} alt={title} className="project-image" loading="lazy"/></a>
+       <a href={ProjectUrl} target='blank'> <img src={imageUrl} alt={title} className="project-image"/></a>
         <h6 className="project-title">{title}</h6>
       </div>
       <p className="project-description">{description}</p>
@@ -17,6 +17,6 @@ const ProjectCard = React.memo(({ imageUrl, title, description, reverse, Project
       )}
     </div>
   );
-});
+};
 
 export default ProjectCard;

@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./Hero.css";
 
-const Hero = React.memo(() => {
+const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [startTyping, setStartTyping] = useState(false);
 
-  const scrollToProject = useCallback((projectId) => {
+  const scrollToProject = (projectId) => {
     const element = document.getElementById(projectId);
     if (!element) return;
     element.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -15,7 +15,7 @@ const Hero = React.memo(() => {
     setTimeout(() => {
       element.classList.remove("project-highlight");
     }, 1600);
-  }, []);
+  };
 
   const fullText =
     "Junior Developer | Enthusiastic Learner | Driven by Innovation";
@@ -61,24 +61,11 @@ const Hero = React.memo(() => {
 
       <div className="hero-img">
         <div className="profile-container">
-          <picture>
-            <source 
-              media="(max-width: 768px)" 
-              srcSet={`${process.env.PUBLIC_URL}/images/profile-picture-mobile.webp`}
-              type="image/webp"
-            />
-            <source 
-              media="(max-width: 768px)" 
-              srcSet={`${process.env.PUBLIC_URL}/images/profile-picture-mobile.png`}
-              type="image/png"
-            />
-            <img
-              src={`${process.env.PUBLIC_URL}/images/profile-picture.png`}
-              alt="Profile"
-              className="profile-pic"
-              loading="eager"
-            />
-          </picture>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/profile-picture.png`}
+            alt="Profile"
+            className="profile-pic"
+          />
           <div className="tech-icons">
             <div className="tech-icon tech-icon-1">
               <img
@@ -86,7 +73,6 @@ const Hero = React.memo(() => {
                 alt="React"
                 role="button"
                 onClick={() => scrollToProject("project-react")}
-                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-2">
@@ -95,7 +81,6 @@ const Hero = React.memo(() => {
                 alt="Flutter"
                 role="button"
                 onClick={() => scrollToProject("project-flutter")}
-                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-3">
@@ -104,7 +89,6 @@ const Hero = React.memo(() => {
                 alt="HTML"
                 role="button"
                 onClick={() => scrollToProject("project-html")}
-                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-4">
@@ -113,7 +97,6 @@ const Hero = React.memo(() => {
                 alt="CSS"
                 role="button"
                 onClick={() => scrollToProject("project-wordpress")}
-                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-5">
@@ -122,7 +105,6 @@ const Hero = React.memo(() => {
                 alt="JavaScript"
                 role="button"
                 onClick={() => scrollToProject("project-threejs")}
-                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-6">
@@ -131,7 +113,6 @@ const Hero = React.memo(() => {
                 alt="ASP.NET"
                 role="button"
                 onClick={() => scrollToProject("project-flutter")}
-                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-7">
@@ -140,7 +121,6 @@ const Hero = React.memo(() => {
                 alt="WordPress"
                 role="button"
                 onClick={() => scrollToProject("project-wordpress")}
-                loading="lazy"
               />
             </div>
           </div>
@@ -148,6 +128,6 @@ const Hero = React.memo(() => {
       </div>
     </section>
   );
-});
+};
 
 export default Hero;
