@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Hero.css";
 
-const Hero = () => {
+const Hero = React.memo(() => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [startTyping, setStartTyping] = useState(false);
 
-  const scrollToProject = (projectId) => {
+  const scrollToProject = useCallback((projectId) => {
     const element = document.getElementById(projectId);
     if (!element) return;
     element.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -15,7 +15,7 @@ const Hero = () => {
     setTimeout(() => {
       element.classList.remove("project-highlight");
     }, 1600);
-  };
+  }, []);
 
   const fullText =
     "Junior Developer | Enthusiastic Learner | Driven by Innovation";
@@ -61,11 +61,24 @@ const Hero = () => {
 
       <div className="hero-img">
         <div className="profile-container">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/profile-picture.png`}
-            alt="Profile"
-            className="profile-pic"
-          />
+          <picture>
+            <source 
+              media="(max-width: 768px)" 
+              srcSet={`${process.env.PUBLIC_URL}/images/profile-picture-mobile.webp`}
+              type="image/webp"
+            />
+            <source 
+              media="(max-width: 768px)" 
+              srcSet={`${process.env.PUBLIC_URL}/images/profile-picture-mobile.png`}
+              type="image/png"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/profile-picture.png`}
+              alt="Profile"
+              className="profile-pic"
+              loading="eager"
+            />
+          </picture>
           <div className="tech-icons">
             <div className="tech-icon tech-icon-1">
               <img
@@ -73,6 +86,7 @@ const Hero = () => {
                 alt="React"
                 role="button"
                 onClick={() => scrollToProject("project-react")}
+                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-2">
@@ -81,6 +95,7 @@ const Hero = () => {
                 alt="Flutter"
                 role="button"
                 onClick={() => scrollToProject("project-flutter")}
+                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-3">
@@ -89,6 +104,7 @@ const Hero = () => {
                 alt="HTML"
                 role="button"
                 onClick={() => scrollToProject("project-html")}
+                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-4">
@@ -97,6 +113,7 @@ const Hero = () => {
                 alt="CSS"
                 role="button"
                 onClick={() => scrollToProject("project-wordpress")}
+                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-5">
@@ -105,6 +122,7 @@ const Hero = () => {
                 alt="JavaScript"
                 role="button"
                 onClick={() => scrollToProject("project-threejs")}
+                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-6">
@@ -113,6 +131,7 @@ const Hero = () => {
                 alt="ASP.NET"
                 role="button"
                 onClick={() => scrollToProject("project-flutter")}
+                loading="lazy"
               />
             </div>
             <div className="tech-icon tech-icon-7">
@@ -121,6 +140,7 @@ const Hero = () => {
                 alt="WordPress"
                 role="button"
                 onClick={() => scrollToProject("project-wordpress")}
+                loading="lazy"
               />
             </div>
           </div>
@@ -128,6 +148,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Hero;

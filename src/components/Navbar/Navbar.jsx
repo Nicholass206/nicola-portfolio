@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Navbar.css";
 import MobileNavbar from "./MobileNavbar/MobileNavbar";
 
-const Navbar = ({ toggleTheme, isDarkMode }) => {
+const Navbar = React.memo(({ toggleTheme, isDarkMode }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
 
@@ -10,7 +10,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
     setOpenMenu(!openMenu);
   };
 
-  const downloadButton = () => {
+  const downloadButton = useCallback(() => {
     try {
       const link = document.createElement("a");
       link.href =
@@ -26,7 +26,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
         "_blank"
       );
     }
-  };
+  }, []);
 
   useEffect(() => {
     const sections = [
@@ -193,6 +193,6 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
       </nav>
     </>
   );
-};
+});
 
 export default Navbar;
