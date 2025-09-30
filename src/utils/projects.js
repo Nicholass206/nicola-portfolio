@@ -1,5 +1,28 @@
 export const PROJECT_DETAILS = [
   {
+    slug: 'zamil',
+    title: 'Zamil',
+    cover: `${process.env.PUBLIC_URL}/images/zamillogo.jpg`,
+    screenshots: [
+      { src: `${process.env.PUBLIC_URL}/images/announcements.jpg`, caption: 'Home Announcements' },
+      { src: `${process.env.PUBLIC_URL}/images/chatbot.jpg`, caption: 'AI Chatbot' },
+      { src: `${process.env.PUBLIC_URL}/images/exam-schedule.jpg`, caption: 'View Exam Schedule' },
+      { src: `${process.env.PUBLIC_URL}/images/login.jpg`, caption: 'Login Page' },
+      { src: `${process.env.PUBLIC_URL}/images/my-grades.jpg`, caption: 'View My Grades' },
+      { src: `${process.env.PUBLIC_URL}/images/my-needs.jpg`, caption: 'View My Needs' },
+      { src: `${process.env.PUBLIC_URL}/images/my-profile.jpg`, caption: 'View My Profile' },
+      { src: `${process.env.PUBLIC_URL}/images/received-requests.jpg`, caption: 'View Received Requests' },
+      { src: `${process.env.PUBLIC_URL}/images/weekly-schedule.jpg`, caption: 'View Weekly Schedule' },
+    ],
+    summary: '4th year University Project',
+    description:
+      'Student collaborative platform that helps students to collaborate and learn together throught a centralized system consisting of a mobile application for the students and a web dashboard for doctors, professors and employees.',
+    role: 'Mobile Developer (Flutter)',
+    technologies: ['Flutter', 'Dart', 'Firebase'],
+    liveUrl: '',
+    repoUrl: "https://gitlab.com/georgynejmeh.job/uni-project-2-flutter"
+  },
+  {
     slug: 'lenabni',
     title: 'Lenabni',
     cover: `${process.env.PUBLIC_URL}/images/lenabni-arabic-logo.png`,

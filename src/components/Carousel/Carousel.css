@@ -6,11 +6,24 @@
   border: 1px solid var(--primary-color);
 }
 
+/* Limit size for mobile portrait carousels (e.g., Zamil) */
+.carousel.mobile {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .carousel-viewport {
   position: relative;
   width: 100%;
   height: 0;
   padding-top: 56.25%; /* 16:9 ratio */
+}
+
+/* Portrait/mobile screenshots: 9:16 style viewport and contain fit */
+.carousel.mobile .carousel-viewport,
+.carousel-viewport.mobile {
+  padding-top: 177.78%; /* 9:16 ratio */
 }
 
 .carousel-slide {
@@ -22,6 +35,11 @@
   opacity: 0;
   transform: scale(1.02);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel.mobile .carousel-slide {
+  object-fit: contain;
+  background: #000; /* subtle backdrop for letterboxing */
 }
 
 .carousel-slide.active {

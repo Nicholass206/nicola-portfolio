@@ -8,6 +8,7 @@ const ProjectDetails = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = findProjectBySlug(slug);
+  const isMobileScreenshots = project && project.slug === 'zamil';
 
   if (!project) {
     return (
@@ -26,7 +27,11 @@ const ProjectDetails = () => {
       <div className="project-details-card">
         <div className="project-grid">
           <div className="project-left">
-            <Carousel images={project.screenshots && project.screenshots.length ? project.screenshots : [project.cover]} alt={`${project.title} screenshots`} />
+            <Carousel
+              images={project.screenshots && project.screenshots.length ? project.screenshots : [project.cover]}
+              alt={`${project.title} screenshots`}
+              mobile={isMobileScreenshots}
+            />
             <div className="project-links">
               {project.liveUrl && (
                 <a className="primary-btn" href={project.liveUrl} target="_blank" rel="noreferrer">Live / Repo</a>

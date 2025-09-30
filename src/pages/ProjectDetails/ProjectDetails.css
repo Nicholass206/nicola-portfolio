@@ -28,7 +28,7 @@
 
 .project-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* more space for description */
+  grid-template-columns: 1.2fr 1fr;
   gap: 1.75rem;
   align-items: start;
 }

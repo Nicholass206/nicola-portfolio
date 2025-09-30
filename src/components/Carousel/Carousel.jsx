@@ -3,7 +3,7 @@ import './Carousel.css';
 
 const AUTO_INTERVAL_MS = 3500;
 
-const Carousel = ({ images = [], alt = 'Screenshot carousel', auto = true }) => {
+const Carousel = ({ images = [], alt = 'Screenshot carousel', auto = true, mobile = false }) => {
   const [index, setIndex] = useState(0);
   const timerRef = useRef(null);
 
@@ -31,8 +31,8 @@ const Carousel = ({ images = [], alt = 'Screenshot carousel', auto = true }) => 
   if (!slides || slides.length === 0) return null;
 
   return (
-    <div className="carousel">
-      <div className="carousel-viewport">
+    <div className={`carousel ${mobile ? 'mobile' : ''}`}>
+      <div className={`carousel-viewport ${mobile ? 'mobile' : ''}`}>
         {slides.map((slide, i) => (
           <img
             key={i}

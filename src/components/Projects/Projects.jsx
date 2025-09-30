@@ -7,6 +7,16 @@ const Projects = () => {
     <section id="projects" className="projects-container">
       <h5>My Projects</h5>
       <div className="projects-content">
+      <div id="project-zamil">
+        <ProjectCard
+          imageUrl={`${process.env.PUBLIC_URL}/images/zamil-logo.jpg`}
+          title="Zamil"
+          description="Zamil is student collaborative platform that helps students to collaborate and learn together throught a centralized system consisting of a mobile application for the students and a web dashboard for doctors, professors and employees."
+          reverse={false}
+          ProjectUrl=""
+          detailsSlug="zamil"
+        />
+        </div>
         <div id="project-wordpress">
         <ProjectCard
           imageUrl={`${process.env.PUBLIC_URL}/images/lenabni-arabic-logo.png`}
