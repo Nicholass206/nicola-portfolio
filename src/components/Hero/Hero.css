@@ -106,14 +106,14 @@
 
   .tech-icon-3 {
     position: absolute;
-    bottom: 170px;
-    left: -20px;
+    bottom: 420px;
+    left: 130px;
     animation: fadeSlideUp 0.8s ease-in-out forwards 1.6s, float 2.8s ease-in-out infinite 3s;
   }
 
   .tech-icon-4 {
     position: absolute;
-    bottom: 70px;
+    bottom: 30px;
     right: 30px;
     animation: fadeSlideUp 0.8s ease-in-out forwards 1.8s, float 3.5s ease-in-out infinite 3.5s;
   }
@@ -135,8 +135,14 @@
 
   .tech-icon-7{
     position: absolute;
-    top: 140px;
+    top: 170px;
     left:35px;
+    animation: fadeSlideUp 0.8s ease-in-out forwards 2.2s, float 3.3s ease-in-out infinite 5.0s;
+  }
+  .tech-icon-8{
+    position: absolute;
+    top: 25px;
+    left:400px;
     animation: fadeSlideUp 0.8s ease-in-out forwards 2.2s, float 3.3s ease-in-out infinite 5.0s;
   }
   

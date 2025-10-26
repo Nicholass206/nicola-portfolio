@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Hero.css";
+import Lottie from "lottie-react";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
@@ -61,11 +62,18 @@ const Hero = () => {
 
       <div className="hero-img">
         <div className="profile-container">
-          <img
+          {/* <img
             src={`${process.env.PUBLIC_URL}/images/profile-picture.png`}
             alt="Profile"
             className="profile-pic"
+          /> */}
+          <Lottie
+            path={`${process.env.PUBLIC_URL}/animations/webDevelopment.json`}
+            loop
+            autoplay
+            style={{ width: 450, height: 450 }}
           />
+
           <div className="tech-icons">
             <div className="tech-icon tech-icon-1">
               <img
@@ -119,6 +127,14 @@ const Hero = () => {
               <img
                 src={`${process.env.PUBLIC_URL}/images/wordpress-logo.png`}
                 alt="WordPress"
+                role="button"
+                onClick={() => scrollToProject("project-wordpress")}
+              />
+            </div>
+            <div className="tech-icon tech-icon-8">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/next-js.png`}
+                alt="Next.js"
                 role="button"
                 onClick={() => scrollToProject("project-wordpress")}
               />
