@@ -1,54 +1,41 @@
 .contact-container {
-    margin: 4rem 0;
-    position: relative;
+  margin: 5rem 0;
+  position: relative;
 }
 
 .contact-container h5 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+}
+
+.contact-container h5::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--gradient);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
 }
 
 .contact-content {
-    display: flex; 
-    flex-direction: row; 
-    gap: 4rem; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.contact-info-card {
-    padding: 1rem;
-    transition: background-color 0.3s ease;
-    border-radius: 8px;
-    width: 400px; 
-    box-sizing: border-box;
-}
-
-.contact-info-card:hover {
-    background-color: var(--secondary-color);
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 @media (max-width: 768px) {
-    .contact-content {
-        flex-direction: column; 
-        gap: 1.5rem;
-    }
-
-    .contact-container h5 {
-        font-size: 1.3rem;
-        margin-bottom: 0rem;
-    }
+  .contact-content { flex-direction: column; gap: 2rem; align-items: stretch; }
+  .contact-container h5 { margin-bottom: 0.6rem; }
 }
 
 @media (max-width: 480px) {
-  .contact-container {
-    margin: 2rem 0;
-  }
-  
-  .contact-info-card {
-    width: 100%;
-    padding: 0.5rem;
-  }
+  .contact-container { margin: 3rem 0; }
 }

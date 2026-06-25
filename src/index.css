@@ -6,39 +6,27 @@
   box-sizing: border-box;
 }
 
-/* Light Theme */
-.light-theme {
-  --background-color: #f2f4f6;
-  --text-color: #1f242b;
-  --primary-color: #264653;   
-  --secondary-color: #2a9d8f; 
-  --accent-color: #dba159;    
-  --navbar-background: rgba(255, 255, 255, 0.9);
-  --navbar-blur: blur(25px);
-  --gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-}
-
-/* Dark Theme */
 :root {
-  --background-color: #101217;
-  --text-color: #e0e3e8;
-  --primary-color: #264653;
-  --secondary-color: #2a9d8f;
-  --accent-color: #dba159;
-  --navbar-background: rgba(16, 18, 23, 0.75);
-  --navbar-blur: blur(25px);
-  --gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --background-color: #0A0A0F;
+  --surface-color: #111116;
+  --surface-2: #17171E;
+  --text-color: #F0F0F0;
+  --text-muted: #8A8A9A;
+  --accent-color: #C9A84C;
+  --accent-hover: #E0C06A;
+  --border-color: rgba(201, 168, 76, 0.18);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --navbar-background: rgba(10, 10, 15, 0.88);
+  --navbar-blur: blur(24px);
+  --gradient: linear-gradient(135deg, #C9A84C 0%, #E0C06A 100%);
+
+  /* legacy aliases kept for any untouched JSX inline styles */
+  --primary-color: #C9A84C;
+  --secondary-color: #E0C06A;
 }
-
-
-
-
-
-
-
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: --background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

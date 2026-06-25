@@ -1,146 +1,183 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Hero.css";
-import Lottie from "lottie-react";
+
+const roles = [
+  "Frontend Developer",
+  "Flutter Developer",
+  "Full-Stack Engineer",
+  "UI / UX Enthusiast",
+];
+
+const SECRET_CLICKS_NEEDED = 5;
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
-  const [startTyping, setStartTyping] = useState(false);
+  const [displayedRole, setDisplayedRole] = useState(roles[0]);
+  const [phase, setPhase] = useState("idle");
+  const [secretCount, setSecretCount] = useState(0);
+  const [showSecret, setShowSecret] = useState(false);
+  const secretResetRef = useRef(null);
+  const secretHideRef = useRef(null);
 
-  const scrollToProject = (projectId) => {
-    const element = document.getElementById(projectId);
-    if (!element) return;
-    element.scrollIntoView({ behavior: "smooth", block: "center" });
-    element.classList.add("project-highlight");
-    setTimeout(() => {
-      element.classList.remove("project-highlight");
-    }, 1600);
+  const handleCoreClick = () => {
+    clearTimeout(secretResetRef.current);
+    setSecretCount((prev) => {
+      const next = prev + 1;
+      if (next >= SECRET_CLICKS_NEEDED) {
+        setShowSecret(true);
+        clearTimeout(secretHideRef.current);
+        secretHideRef.current = setTimeout(() => setShowSecret(false), 7000);
+        return 0;
+      }
+      return next;
+    });
+    secretResetRef.current = setTimeout(() => setSecretCount(0), 1200);
   };
 
-  const fullText =
-    "Junior Developer | Enthusiastic Learner | Driven by Innovation";
-
   useEffect(() => {
-    const startDelay = setTimeout(() => {
-      setStartTyping(true);
-    }, 1500);
-
-    return () => clearTimeout(startDelay);
+    return () => {
+      clearTimeout(secretResetRef.current);
+      clearTimeout(secretHideRef.current);
+    };
   }, []);
 
+  // const downloadResume = () => {
+  //   try {
+  //     const link = document.createElement("a");
+  //     link.href =
+  //       "https://nicholass206.github.io/nicola-portfolio/images/Nicola-Fadoul-Resume.pdf";
+  //     link.download = "Nicola-Fadoul-Resume.pdf";
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   } catch {
+  //     window.open(
+  //       "https://nicholass206.github.io/nicola-portfolio/images/Nicola-Fadoul-Resume.pdf",
+  //       "_blank"
+  //     );
+  //   }
+  // };
+
   useEffect(() => {
-    if (startTyping && currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + fullText[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, 80);
+    const interval = setInterval(() => {
+      setPhase("exit");
 
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText, startTyping]);
+      const swap = setTimeout(() => {
+        setDisplayedRole((prev) => {
+          const idx = roles.indexOf(prev);
+          return roles[(idx + 1) % roles.length];
+        });
+        setPhase("enter");
 
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
+        const reset = setTimeout(() => setPhase("idle"), 420);
+        return () => clearTimeout(reset);
+      }, 360);
 
-    return () => clearInterval(cursorInterval);
+      return () => clearTimeout(swap);
+    }, 2800);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section id="home" className="hero-container">
-      <div className="hero-content">
-        <h2>Hi, I'm Nicola Fadoul</h2>
-        <p className="typewriter-text">
-          {displayText}
-          <span className={`cursor ${showCursor ? "visible" : "hidden"}`}>
-            |
-          </span>
-        </p>
-      </div>
+      <div className="hero-inner">
 
-      <div className="hero-img">
-        <div className="profile-container">
-          {/* <img
-            src={`${process.env.PUBLIC_URL}/images/profile-picture.png`}
-            alt="Profile"
-            className="profile-pic"
-          /> */}
-          <Lottie
-            path={`${process.env.PUBLIC_URL}/animations/webDevelopment.json`}
-            loop
-            autoplay
-            style={{ width: 450, height: 450 }}
-          />
+        <div className="hero-text">
+          <h1 className="hero-name">
+            <span className="name-first">Nicola</span>
+            <span className="name-last">Fadoul</span>
+          </h1>
 
-          <div className="tech-icons">
-            <div className="tech-icon tech-icon-1">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/react1.png`}
-                alt="React"
-                role="button"
-                onClick={() => scrollToProject("project-react")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-2">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/flutter-icon.webp`}
-                alt="Flutter"
-                role="button"
-                onClick={() => scrollToProject("project-flutter")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-3">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/html2.png`}
-                alt="HTML"
-                role="button"
-                onClick={() => scrollToProject("project-html")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-4">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/css-icon.png`}
-                alt="CSS"
-                role="button"
-                onClick={() => scrollToProject("project-wordpress")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-5">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/js.png`}
-                alt="JavaScript"
-                role="button"
-                onClick={() => scrollToProject("project-threejs")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-6">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/netframework.jpg`}
-                alt="ASP.NET"
-                role="button"
-                onClick={() => scrollToProject("project-flutter")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-7">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/wordpress-logo.png`}
-                alt="WordPress"
-                role="button"
-                onClick={() => scrollToProject("project-wordpress")}
-              />
-            </div>
-            <div className="tech-icon tech-icon-8">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/next-js.png`}
-                alt="Next.js"
-                role="button"
-                onClick={() => scrollToProject("project-wordpress")}
-              />
-            </div>
+          <div className="hero-divider" />
+
+          <div className="hero-role-track">
+            <span
+              className={`hero-role phase-${phase}`}
+              key={displayedRole}
+            >
+              {displayedRole}
+            </span>
+          </div>
+
+          <p className="hero-tagline">
+            Driven by clean code, thoughtful UI, and continuous learning.
+          </p>
+
+          <div className="hero-ctas">
+            <a
+              href="#projects"
+              className="hero-btn hero-btn--primary"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              View Projects
+            </a>
           </div>
         </div>
+
+        <div className="hero-visual">
+          <div className="orbit-scene">
+            <button
+              type="button"
+              className="orbit-core"
+              onClick={handleCoreClick}
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+
+            <div className="orbit-tilt orbit-tilt-1" aria-hidden="true">
+              <div className="orbit-ring orbit-ring-1">
+                <div className="orbit-dot" />
+              </div>
+            </div>
+
+            <div className="orbit-tilt orbit-tilt-2" aria-hidden="true">
+              <div className="orbit-ring orbit-ring-2">
+                <div className="orbit-dot" />
+              </div>
+            </div>
+
+            <div className="orbit-tilt orbit-tilt-3" aria-hidden="true">
+              <div className="orbit-ring orbit-ring-3">
+                <div className="orbit-dot" />
+              </div>
+            </div>
+
+            {showSecret && (
+              <div className="secret-card" role="status">
+                <div className="secret-stripe" aria-hidden="true" />
+                <button
+                  type="button"
+                  className="secret-close"
+                  onClick={() => setShowSecret(false)}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+                <p className="secret-title">A little secret 👀</p>
+
+                <div className="secret-row">
+                  <div className="secret-flags" aria-hidden="true">
+                    <span>🇱🇧</span>
+                    <span>🇬🇧</span>
+                    <span>🇮🇹</span>
+                  </div>
+                  <p className="secret-sub">Arabic · English · Italian</p>
+                </div>
+
+                <div className="secret-row">
+                  <span className="club-badge" aria-hidden="true" />
+                  <p className="secret-sub">Atlético Madrid fan</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
       </div>
     </section>
   );

@@ -1,249 +1,288 @@
+/* ── Section wrapper ── */
 .about-container {
-  margin: 4rem 0;
+  margin: 5rem 0;
   position: relative;
 }
 
-.about-container::after,
-.about-container::before {
-  content: " ";
-  width: 28rem;
-  height: 28rem;
-  border-radius: 28.125rem;
-  background: var(--primary-color);
-  position: absolute;
-  z-index: -1;
-  filter: blur(200px);
-}
-
-.about-container::after {
-  top: -3rem;
-  right: -5rem;
-}
-
-.about-container::before {
-  background: var(--secondary-color);
-  bottom: 0rem;
-  left: 0rem;
-}
-
 .about-container h5 {
-  font-size: 1.5rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  margin-bottom: 3.5rem;
-  color: var(--text-color);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.6rem;
 }
 
-.about-content {
-  display: flex;
-  gap: 4rem;
-  align-items: flex-start;
-}
-
-.about-description {
-  flex: 1;
-  max-width: 50%;
-}
-
-.about-text h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.about-text p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-  text-align: justify;
-}
-
-.typeracer-section {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.typeracer-section h4 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.typeracer-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: rgba(22, 17, 47, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.typeracer-badge:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border-color: var(--primary-color);
-}
-
-.typeracer-link {
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.typeracer-link:hover {
-  transform: scale(1.05);
-}
-
-.typeracer-img {
+.about-container h5::after {
+  content: "";
   display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--gradient);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
 }
 
-.typeracer-description {
-  font-size: 0.9rem;
+/* ── Bento grid ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
+}
+
+/* ── Grid placement ── */
+.bento-bio      { grid-column: 1 / 3; grid-row: 1 / 3; }
+.bento-stat-a   { grid-column: 3;     grid-row: 1; }
+.bento-stat-b   { grid-column: 4;     grid-row: 1; }
+.bento-approach { grid-column: 3;     grid-row: 2; }
+.bento-soft     { grid-column: 4;     grid-row: 2; }
+.bento-interests{ grid-column: 1 / 3; grid-row: 3; }
+.bento-current  { grid-column: 3 / 5; grid-row: 3; }
+
+/* ── Base card ── */
+.bento-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: bentoPop 0.55s ease forwards;
+}
+
+.bento-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 28px rgba(201, 168, 76, 0.1);
+  transform: translateY(-3px);
+}
+
+/* staggered entrance */
+.bento-bio      { animation-delay: 0.05s; }
+.bento-stat-a   { animation-delay: 0.15s; }
+.bento-stat-b   { animation-delay: 0.22s; }
+.bento-approach { animation-delay: 0.30s; }
+.bento-soft     { animation-delay: 0.37s; }
+.bento-interests{ animation-delay: 0.45s; }
+.bento-current  { animation-delay: 0.52s; }
+
+@keyframes bentoPop {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ── Bio card content ── */
+.bento-overline {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.bento-bio-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
   color: var(--text-color);
-  text-align: center;
-  margin: 0;
-  opacity: 0.8;
-  line-height: 1.5;
+  margin-bottom: 1.1rem;
 }
 
-.about-cards {
-  flex: 1;
+.gold-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bento-bio-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.avail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(74, 222, 128, 0.06);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4ade80;
+  letter-spacing: 0.03em;
+}
+
+.avail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+}
+
+/* ── Stat cards ── */
+.bento-stat {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.4rem;
+  min-height: 110px;
 }
 
-@media (max-width: 1025px) {
-  .about-content {
-    gap: 3rem;
-  }
-  
-  .about-text h3 {
-    font-size: 1.8rem;
-  }
-  
-  .about-text p {
-    font-size: 0.95rem;
-  }
-
-  .typeracer-section h4 {
-    font-size: 1.2rem;
-  }
-
-  .typeracer-badge {
-    padding: 1.2rem;
-  }
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    gap: 3rem;
-  }
-  
-  .about-description {
-    max-width: 100%;
-  }
-  
-  .about-container h5 {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-  }
-  
-  .about-text h3 {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-  
-  .about-text p {
-    text-align: left;
-  }
-
-  .typeracer-section {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-  }
-
-  .typeracer-section h4 {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  .typeracer-badge {
-    padding: 1rem;
-  }
-
-  .typeracer-description {
-    font-size: 0.85rem;
-  }
-  
-  .about-container::after,
-  .about-container::before {
-    width: 18rem;
-    height: 18rem;
-  }
+.stat-suffix {
+  font-size: 2rem;
 }
 
-@media (max-width: 480px) {
-  .about-container {
-    margin: 2rem 0;
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* ── List cards (Approach & Soft Skills) ── */
+.bento-card-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.label-icon {
+  font-size: 1rem;
+}
+
+.bento-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.bento-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  line-height: 1.4;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bento-list li:hover {
+  color: var(--accent-color);
+  transform: translateX(3px);
+}
+
+.bento-bullet {
+  color: var(--accent-color);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+/* ── Interests card ── */
+.interest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.interest-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: rgba(201, 168, 76, 0.05);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.interest-chip:hover {
+  border-color: var(--accent-color);
+  background: rgba(201, 168, 76, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Currently card ── */
+.bento-current-text {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
   }
 
-  .about-content {
-    gap: 2rem;
-    align-items: center;
+  .bento-bio      { grid-column: 1 / 3; grid-row: auto; }
+  .bento-stat-a   { grid-column: 1;     grid-row: auto; }
+  .bento-stat-b   { grid-column: 2;     grid-row: auto; }
+  .bento-approach { grid-column: 1;     grid-row: auto; }
+  .bento-soft     { grid-column: 2;     grid-row: auto; }
+  .bento-interests{ grid-column: 1 / 3; grid-row: auto; }
+  .bento-current  { grid-column: 1 / 3; grid-row: auto; }
+}
+
+@media (max-width: 600px) {
+  .about-container { margin: 3rem 0; }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
-  .about-cards {
-    align-items: center;
-  }
-  
-  .about-text h3 {
-    font-size: 1.4rem;
-  }
-  
-  .about-text p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+  .bento-bio,
+  .bento-stat-a, .bento-stat-b,
+  .bento-approach, .bento-soft,
+  .bento-interests, .bento-current {
+    grid-column: 1;
+    grid-row: auto;
   }
 
-  .typeracer-section {
-    margin-top: 1rem;
-    padding-top: 1rem;
-  }
-
-  .typeracer-section h4 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .typeracer-badge {
-    padding: 0.8rem;
-    gap: 0.8rem;
-  }
-
-  .typeracer-description {
-    font-size: 0.8rem;
-  }
+  .bento-card { padding: 1.35rem; border-radius: 12px; }
+  .bento-bio-heading { font-size: 1.35rem; }
+  .stat-number { font-size: 2.5rem; }
 }

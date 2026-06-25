@@ -12,60 +12,75 @@ const ProjectDetails = () => {
 
   if (!project) {
     return (
-      <div className="project-details-container">
-        <div className="project-details-card">
+      <div className="pd-page">
+        <div className="pd-not-found">
           <h2>Project not found</h2>
-          <Link className="back-link" to="/">← Back to Home</Link>
+          <Link className="pd-btn-ghost" to="/">← Back to Home</Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="project-details-container">
-      <button className="back-arrow" onClick={() => navigate('/')}>← Back</button>
-      <div className="project-details-card">
-        <div className="project-grid">
-          <div className="project-left">
-            <Carousel
-              images={project.screenshots && project.screenshots.length ? project.screenshots : [project.cover]}
-              alt={`${project.title} screenshots`}
-              mobile={isMobileScreenshots}
-            />
-            <div className="project-links">
-              {project.liveUrl && (
-                <a className="primary-btn" href={project.liveUrl} target="_blank" rel="noreferrer">Live / Repo</a>
-              )}
-              {project.repoUrl && project.repoUrl !== project.liveUrl && (
-                <a className="secondary-btn" href={project.repoUrl} target="_blank" rel="noreferrer">Repository</a>
-              )}
-            </div>
+    <div className="pd-page">
+
+      {/* ── Back ── */}
+      <button className="pd-back" onClick={() => navigate('/')}>
+        ← Projects
+      </button>
+
+      {/* ── Header ── */}
+      <div className="pd-header">
+        <div className="pd-header-left">
+          <span className="pd-label">Project</span>
+          <h1 className="pd-title">{project.title}</h1>
+          <p className="pd-summary">{project.summary}</p>
+          <div className="pd-chips">
+            {project.technologies.map((t) => (
+              <span key={t} className="pd-chip">{t}</span>
+            ))}
           </div>
-          <div className="project-right">
-            <h1 className="project-heading">{project.title}</h1>
-            <p className="project-summary">{project.summary}</p>
-            <div className="project-meta">
-              <div className="meta-card">
-                <h4>My Role</h4>
-                <p>{project.role}</p>
-              </div>
-              <div className="meta-card">
-                <h4>Technologies</h4>
-                <div className="tech-chips">
-                  {project.technologies.map((t) => (
-                    <span key={t} className="tech-chip">{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <p className="project-description">{project.description}</p>
+        </div>
+
+        <div className="pd-header-right">
+          <div className="pd-meta-row">
+            <span className="pd-meta-label">Role</span>
+            <span className="pd-meta-value">{project.role}</span>
+          </div>
+          <div className="pd-links">
+            {project.liveUrl && (
+              <a className="pd-btn-primary" href={project.liveUrl} target="_blank" rel="noreferrer">
+                Live ↗
+              </a>
+            )}
+            {project.repoUrl && project.repoUrl !== project.liveUrl && (
+              <a className="pd-btn-ghost" href={project.repoUrl} target="_blank" rel="noreferrer">
+                Repository ↗
+              </a>
+            )}
           </div>
         </div>
       </div>
+
+      <div className="pd-divider" />
+
+      {/* ── Carousel ── */}
+      <div className="pd-carousel-wrap">
+        <Carousel
+          images={project.screenshots && project.screenshots.length ? project.screenshots : [project.cover]}
+          alt={`${project.title} screenshots`}
+          mobile={isMobileScreenshots}
+        />
+      </div>
+
+      {/* ── Description ── */}
+      <div className="pd-body">
+        <h3 className="pd-body-title">About the project</h3>
+        <p className="pd-description">{project.description}</p>
+      </div>
+
     </div>
   );
 };
 
 export default ProjectDetails;
-
-

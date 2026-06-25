@@ -1,64 +1,65 @@
-.contact-form-content{
-    width: 100%;
+.contact-form-content {
+  width: 100%;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    grid-gap: 1.5rem;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.name-container{
-    display: flex;
-    align-items: center;
-    grid-gap: 1.5rem;
+.name-container {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 form input,
-form textarea{
-    flex: 1;
-    width: 100%;
-    font-size: 0.9rem;
-    color: #fff;
-    background:#130f2a;
-    border-radius: 0.6rem;
-    border: 1.5px solid #6751b9;
-    padding: 1rem;
+form textarea {
+  flex: 1;
+  width: 100%;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  background: var(--surface-2);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
 
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
 }
 
 form button {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    border-radius: 0.65rem;
-    background: linear-gradient(90deg,#a892fe 0%, #8064e8 100%);
-    padding: 0.7rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #0A0A0F;
+  border-radius: 8px;
+  background: var(--gradient);
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.2s ease;
 }
 
-form button:hover{
-    color: #a892fe;
-    background: transparent;
+form button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
 }
 
-@media (max-width:450px){
-    .name-container{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    form input,
-    form textarea{
-        padding: 0.7rem;
-        border-radius: 0.3rem;
-
-    }
-
-    form button {
-        font-size: 0.9rem;
-        padding: 0.7rem;
-        border-radius: 0.3rem;
-    }
+@media (max-width: 450px) {
+  .name-container { flex-direction: column; }
+  form input,
+  form textarea { padding: 0.75rem; border-radius: 6px; }
+  form button   { font-size: 0.85rem; border-radius: 6px; }
 }
-

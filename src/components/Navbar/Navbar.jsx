@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import MobileNavbar from "./MobileNavbar/MobileNavbar";
 
-const Navbar = ({ toggleTheme, isDarkMode }) => {
+const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
 
@@ -30,11 +30,12 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
 
   useEffect(() => {
     const sections = [
-      { id: "home", element: document.getElementById("home") },
-      { id: "about-me", element: document.getElementById("about-me") },
-      { id: "skills", element: document.getElementById("skills") },
-      { id: "projects", element: document.getElementById("projects") },
-      { id: "contact-me", element: document.getElementById("contact-me") },
+      { id: "home",       element: document.getElementById("home") },
+      { id: "about-me",  element: document.getElementById("about-me") },
+      { id: "skills",    element: document.getElementById("skills") },
+      { id: "projects",  element: document.getElementById("projects") },
+      { id: "experience",element: document.getElementById("experience") },
+      { id: "contact-me",element: document.getElementById("contact-me") },
     ];
 
     const observerOptions = {
@@ -80,9 +81,6 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
       />
       <nav className="nav-wrapper">
         <div className="nav-content">
-          <button onClick={toggleTheme} className="theme-toggle">
-            {isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-          </button>
           <div className="nav-right">
             <ul>
               <li>
@@ -151,6 +149,23 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
                   }}
                 >
                   Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#experience"
+                  className={`menu-item ${
+                    activeLink === "experience" ? "active" : ""
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveLink("experience");
+                    document
+                      .getElementById("experience")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Experience
                 </a>
               </li>
               <li>

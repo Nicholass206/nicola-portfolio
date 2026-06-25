@@ -1,89 +1,141 @@
-import React from 'react';
-import './AboutMe.css';
-import AboutCard from './AboutCard/AboutCard';
+import React, { useEffect, useRef, useState } from "react";
+import "./AboutMe.css";
 
-const AboutMe = () => {
+const StatCard = ({ value, suffix = "", label, className }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        let current = 0;
+        const step = value / (1200 / 16);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, value);
+          setCount(Math.floor(current));
+          if (current >= value) clearInterval(timer);
+        }, 16);
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value]);
+
   return (
-    <section id="about-me" className="about-container">
-      <h5>About Me</h5>
-      <div className="about-content">
-        <div className="about-description">
-          <div className="about-text">
-            <p>
-              I'm a passionate junior developer with a strong foundation in both front-end and back-end technologies. 
-              My journey into programming began with curiosity and has evolved into a deep love for creating innovative 
-              solutions that make a difference.
-            </p>
-            <p>
-              I believe in continuous learning and staying up-to-date with the latest technologies. My approach to 
-              development is methodical yet creative, always focusing on writing clean, efficient code while 
-              maintaining excellent user experience.
-            </p>
-            <p>
-              When I'm not coding, I enjoy exploring new technologies. I'm always excited to take on new challenges and
-              collaborate with like-minded individuals.
-            </p>
-          </div>
-
-          <div className="typeracer-section">
-            <h4>Typing Skills</h4>
-            <div className="typeracer-badge">
-              <a
-                href="https://data.typeracer.com/pit/profile?user=nicholas206&ref=badge"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="typeracer-link"
-              >
-                <img
-                  src="https://data.typeracer.com/misc/badge?user=nicholas206"
-                  alt="TypeRacer.com scorecard for user nicholas206"
-                  className="typeracer-img"
-                />
-              </a>
-              <p className="typeracer-description">
-                I enjoy improving my typing speed and accuracy through TypeRacer challenges.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="about-cards">
-          <AboutCard
-            icon="🎯"
-            title="Working Style"
-            items={[
-              "Agile & Collaborative",
-              "Detail-Oriented",
-              "Problem-Solving Focused",
-              "Continuous Learning",
-            ]}
-          />
-          
-          <AboutCard
-            icon="💡"
-            title="Soft Skills"
-            items={[
-              "Effective Communication",
-              "Team Collaboration",
-              "Time Management",
-              "Adaptability",
-              "Critical Thinking"
-            ]}
-          />
-          
-          <AboutCard
-            icon="🎨"
-            title="Hobbies & Interests"
-            items={[
-              "Music",
-              "Geography & Football",
-              "Learning New Languages"
-            ]}
-          />
-        </div>
-      </div>
-    </section>
+    <div className={`bento-card bento-stat ${className}`} ref={ref}>
+      <span className="stat-number">
+        {count}
+        {suffix && <span className="stat-suffix">{suffix}</span>}
+      </span>
+      <span className="stat-label">{label}</span>
+    </div>
   );
 };
+
+const AboutMe = () => (
+  <section id="about-me" className="about-container">
+    <h5>About Me</h5>
+
+    <div className="bento-grid">
+
+      {/* ── Bio ── */}
+      <div className="bento-card bento-bio">
+        <p className="bento-overline">Who I am</p>
+        <h3 className="bento-bio-heading">
+          I build things for the{" "}
+          <span className="gold-text">web</span> and{" "}
+          <span className="gold-text">mobile</span>.
+        </h3>
+        <p className="bento-bio-text">
+          Passionate junior developer with a strong foundation in both
+          front-end and back-end technologies. My journey began with curiosity
+          and has grown into a deep love for crafting polished, user-focused
+          products.
+        </p>
+        <p className="bento-bio-text">
+          I thrive in collaborative environments and believe in continuous
+          learning — always pushing to write cleaner code and deliver better
+          experiences.
+        </p>
+        <div className="avail-badge">
+          <span className="avail-dot" />
+          Open to Opportunities
+        </div>
+      </div>
+
+      {/* ── Stats ── */}
+      <StatCard value={7}  suffix=""  label="Projects Completed" className="bento-stat-a" />
+      <StatCard value={5}  suffix="+" label="Tech Frameworks"    className="bento-stat-b" />
+
+      {/* ── Approach ── */}
+      <div className="bento-card bento-approach">
+        <p className="bento-card-label">
+          <span className="label-icon">🎯</span> Approach
+        </p>
+        <ul className="bento-list">
+          {["Agile & Collaborative", "Detail-Oriented", "Problem-Solving", "Clean Code First"].map(
+            (item) => (
+              <li key={item}>
+                <span className="bento-bullet">▸</span>
+                {item}
+              </li>
+            )
+          )}
+        </ul>
+      </div>
+
+      {/* ── Soft Skills ── */}
+      <div className="bento-card bento-soft">
+        <p className="bento-card-label">
+          <span className="label-icon">💡</span> Soft Skills
+        </p>
+        <ul className="bento-list">
+          {["Communication", "Team Collaboration", "Adaptability", "Critical Thinking"].map(
+            (item) => (
+              <li key={item}>
+                <span className="bento-bullet">▸</span>
+                {item}
+              </li>
+            )
+          )}
+        </ul>
+      </div>
+
+      {/* ── Interests ── */}
+      <div className="bento-card bento-interests">
+        <p className="bento-card-label">
+          <span className="label-icon">✦</span> Interests
+        </p>
+        <div className="interest-chips">
+          {[
+            ["🎵", "Music"],
+            ["⚽", "Football"],
+            ["🌍", "Geography"],
+            ["📚", "Languages"],
+          ].map(([icon, name]) => (
+            <span key={name} className="interest-chip">
+              {icon} {name}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Currently ── */}
+      <div className="bento-card bento-current">
+        <p className="bento-card-label">
+          <span className="label-icon">🔭</span> Currently
+        </p>
+        <p className="bento-current-text">
+          Exploring Next.js, AI-powered tooling, and refining full-stack
+          architecture patterns.
+        </p>
+      </div>
+
+    </div>
+  </section>
+);
 
 export default AboutMe;

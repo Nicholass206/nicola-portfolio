@@ -1,46 +1,277 @@
 .projects-container {
-    margin: 4rem 0 5rem 0;
-    position: relative;
+  margin: 5rem 0 6rem;
+  position: relative;
 }
 
 .projects-container h5 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.6rem;
 }
 
-.projects-content {
-    display: flex;
-    flex-direction: column; 
-    gap: 3.25rem; 
+.projects-container h5::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--gradient);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
 }
 
+/* Two-column layout */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ── Left: project list ── */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: background 0.25s ease;
+  border-radius: 0 8px 8px 0;
+}
+
+.project-item:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.project-item.active,
+.project-item:hover {
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.project-item.active .project-num,
+.project-item:hover .project-num {
+  color: var(--accent-color);
+}
+
+.project-item.active .project-item-title,
+.project-item:hover .project-item-title {
+  color: var(--accent-color);
+}
+
+.project-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding-top: 0.25rem;
+  min-width: 2rem;
+  transition: color 0.25s ease;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-item-body {
+  flex: 1;
+}
+
+.project-item-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  transition: color 0.25s ease;
+}
+
+.project-item-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.project-item.active .project-item-desc,
+.project-item:hover .project-item-desc {
+  max-height: 6rem;
+  opacity: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+.project-item.active .project-tags,
+.project-item:hover .project-tags {
+  max-height: 4rem;
+  opacity: 1;
+}
+
+.project-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  color: var(--accent-color);
+  background: rgba(201, 168, 76, 0.06);
+}
+
+.project-item-actions {
+  display: flex;
+  gap: 0.6rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+.project-item.active .project-item-actions,
+.project-item:hover .project-item-actions {
+  max-height: 3rem;
+  opacity: 1;
+}
+
+.proj-btn {
+  display: inline-block;
+  padding: 0.42rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.18s ease, border-color 0.22s ease;
+}
+
+.proj-btn--primary {
+  background: var(--gradient);
+  color: #0A0A0F;
+  border: none;
+}
+
+.proj-btn--primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.proj-btn--ghost {
+  background: transparent;
+  color: var(--accent-color);
+  border: 1.5px solid var(--border-color);
+}
+
+.proj-btn--ghost:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* ── Right: preview panel ── */
+.projects-preview {
+  position: sticky;
+  top: 5rem;
+}
+
+.preview-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.preview-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.preview-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(to top, rgba(10, 10, 15, 0.85) 0%, transparent 100%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 0.01em;
+}
+
+/* highlight from hero scroll */
 .project-highlight {
-    outline: 2px solid var(--primary-color);
-    border-radius: 0.75rem;
-    transition: outline-color 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 0 0.75rem rgba(98, 0, 255, 0.4);
+  outline: 2px solid var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
 }
 
+/* ── Responsive ── */
+@media (max-width: 1025px) {
+  .projects-layout {
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+  }
+}
 
 @media (max-width: 768px) {
-    .projects-content {
-        flex-direction: column-reverse;
-    }
-
-    .projects-container h5 {
-        font-size: 1.3rem;
-        margin-bottom: 0rem;
-    }
+  .projects-layout {
+    grid-template-columns: 1fr;
+  }
+  .projects-preview {
+    position: static;
+    order: -1;
+  }
+  .preview-frame {
+    aspect-ratio: 16 / 9;
+  }
+  .preview-img {
+    object-fit: cover;
+    padding: 0;
+  }
+  .project-item-desc,
+  .project-tags,
+  .project-item-actions {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
 }
 
 @media (max-width: 480px) {
-  .projects-container {
-    margin: 2rem 0;
-  }
-
-  .projects-content {
-    gap: 2rem;
-    align-items: center;
-  }
+  .projects-container { margin: 3rem 0; }
+  .project-item { padding: 1.25rem 0.75rem; gap: 1rem; }
+  .project-item-title { font-size: 1rem; }
+  .project-item-desc  { font-size: 0.83rem; }
 }
