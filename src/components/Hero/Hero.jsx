@@ -8,6 +8,18 @@ const roles = [
   "UI / UX Enthusiast",
 ];
 
+const techStack = [
+  { name: "React",      icon: `${process.env.PUBLIC_URL}/images/react.svg`,       r: 100, dur: 7,  delay: 0,     ring: "inner", dir: "cw"  },
+  { name: "Flutter",    icon: `${process.env.PUBLIC_URL}/images/flutter.svg`,      r: 100, dur: 7,  delay: -3.5,  ring: "inner", dir: "cw"  },
+  { name: ".NET Core",  icon: `${process.env.PUBLIC_URL}/images/dotnetcore.svg`,   r: 155, dur: 13, delay: 0,     ring: "mid",   dir: "ccw" },
+  { name: "Spring",     icon: `${process.env.PUBLIC_URL}/images/spring.svg`,       r: 155, dur: 13, delay: -4.33, ring: "mid",   dir: "ccw" },
+  { name: "Laravel",    icon: `${process.env.PUBLIC_URL}/images/laravel.svg`,      r: 155, dur: 13, delay: -8.67, ring: "mid",   dir: "ccw" },
+  { name: "Angular",    icon: `${process.env.PUBLIC_URL}/images/angular.svg`,      r: 215, dur: 20, delay: 0,     ring: "outer", dir: "cw"  },
+  { name: "TypeScript", icon: `${process.env.PUBLIC_URL}/images/typescript.svg`,   r: 215, dur: 20, delay: -5,    ring: "outer", dir: "cw"  },
+  { name: "GitLab",     icon: `${process.env.PUBLIC_URL}/images/gitlab-icon.svg`,  r: 215, dur: 20, delay: -10,   ring: "outer", dir: "cw"  },
+  { name: "SQL Server", icon: `${process.env.PUBLIC_URL}/images/sqlserver.svg`,    r: 215, dur: 20, delay: -15,   ring: "outer", dir: "cw"  },
+];
+
 const SECRET_CLICKS_NEEDED = 5;
 
 const Hero = () => {
@@ -39,23 +51,6 @@ const Hero = () => {
       clearTimeout(secretHideRef.current);
     };
   }, []);
-
-  // const downloadResume = () => {
-  //   try {
-  //     const link = document.createElement("a");
-  //     link.href =
-  //       "https://nicholass206.github.io/nicola-portfolio/images/Nicola-Fadoul-Resume.pdf";
-  //     link.download = "Nicola-Fadoul-Resume.pdf";
-  //     document.body.appendChild(link);
-  //     link.click();
-  //     document.body.removeChild(link);
-  //   } catch {
-  //     window.open(
-  //       "https://nicholass206.github.io/nicola-portfolio/images/Nicola-Fadoul-Resume.pdf",
-  //       "_blank"
-  //     );
-  //   }
-  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -91,10 +86,7 @@ const Hero = () => {
           <div className="hero-divider" />
 
           <div className="hero-role-track">
-            <span
-              className={`hero-role phase-${phase}`}
-              key={displayedRole}
-            >
+            <span className={`hero-role phase-${phase}`} key={displayedRole}>
               {displayedRole}
             </span>
           </div>
@@ -129,23 +121,26 @@ const Hero = () => {
               aria-hidden="true"
             />
 
-            <div className="orbit-tilt orbit-tilt-1" aria-hidden="true">
-              <div className="orbit-ring orbit-ring-1">
-                <div className="orbit-dot" />
-              </div>
-            </div>
+            <div className="flat-ring flat-ring-1" aria-hidden="true" />
+            <div className="flat-ring flat-ring-2" aria-hidden="true" />
+            <div className="flat-ring flat-ring-3" aria-hidden="true" />
 
-            <div className="orbit-tilt orbit-tilt-2" aria-hidden="true">
-              <div className="orbit-ring orbit-ring-2">
-                <div className="orbit-dot" />
+            {techStack.map((tech) => (
+              <div
+                key={tech.name}
+                className={`tech-node tech-node--${tech.ring}${tech.dir === "ccw" ? " ccw" : ""}`}
+                style={{
+                  "--r": `${tech.r}px`,
+                  "--dur": `${tech.dur}s`,
+                  "--delay": `${tech.delay}s`,
+                }}
+                aria-hidden="true"
+              >
+                <div className="tech-icon-bubble" title={tech.name}>
+                  <img src={tech.icon} alt={tech.name} className="tech-icon-img" />
+                </div>
               </div>
-            </div>
-
-            <div className="orbit-tilt orbit-tilt-3" aria-hidden="true">
-              <div className="orbit-ring orbit-ring-3">
-                <div className="orbit-dot" />
-              </div>
-            </div>
+            ))}
 
             {showSecret && (
               <div className="secret-card" role="status">

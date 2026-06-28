@@ -17,7 +17,7 @@ const experiences = [
     company: "Fatora E-Payment",
     duration: "Sep 2024 – Dec 2025",
     location: "Damascus",
-    iconUrl: null,
+    iconUrl: `${process.env.PUBLIC_URL}/images/fatora-logo.jfif`,
     description:
       "Optimized core financial products — Fatora Panel and Fatora User App — improving reliability and performance for banking clients. Shipped new features end-to-end across a mixed stack and maintained clean, scalable architecture with consistent code quality standards.",
     tags: [".NET Core", "Spring Boot", "Angular", "Flutter", "SQL Server"],
@@ -27,7 +27,7 @@ const experiences = [
     company: "Career.sy",
     duration: "Nov 2023 – May 2024",
     location: "Damascus",
-    iconUrl: null,
+    iconUrl: `${process.env.PUBLIC_URL}/images/career.sy-logo.jfif`,
     description:
       "Managed the platform dashboard and ensured smooth day-to-day functionality for job seekers and recruiters. Coordinated job posting workflows and organized applicant data pipelines to support the recruitment team.",
     tags: ["WordPress", "Dashboard", "Data Management"],

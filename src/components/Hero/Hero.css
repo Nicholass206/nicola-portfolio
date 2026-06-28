@@ -192,17 +192,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 480px;
-  height: 480px;
+  width: 560px;
+  height: 560px;
   opacity: 0;
   animation: fadeSlideUp 0.8s ease forwards 1.2s;
 }
 
 .orbit-scene {
   position: relative;
-  width: 420px;
-  height: 420px;
-  perspective: 900px;
+  width: 520px;
+  height: 520px;
 }
 
 /* Central glowing dot — also the hidden click target */
@@ -210,8 +209,8 @@
   position: absolute;
   inset: 0;
   margin: auto;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   padding: 0;
   border: none;
   border-radius: 50%;
@@ -226,74 +225,74 @@
 }
 
 .orbit-core:hover {
-  transform: scale(1.35);
+  transform: scale(1.4);
 }
 
-/* Each tilt wrapper holds one ring and tilts it in 3D — decorative only */
-.orbit-tilt {
+/* Flat decorative rings */
+.flat-ring {
   position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
-.orbit-tilt-1 { transform: rotateX(70deg) rotateZ(15deg); }
-.orbit-tilt-2 { transform: rotateX(58deg) rotateZ(-30deg); }
-.orbit-tilt-3 { transform: rotateX(80deg) rotateZ(55deg); }
+.flat-ring-1 { width: 200px;  height: 200px;  border-color: rgba(201, 168, 76, 0.40); }
+.flat-ring-2 { width: 310px;  height: 310px;  border-color: rgba(201, 168, 76, 0.20); }
+.flat-ring-3 { width: 430px;  height: 430px;  border-color: rgba(201, 168, 76, 0.10); }
 
-/* Rings — centered inside their tilt wrapper, spin around Z */
-.orbit-ring {
+/* Orbiting tech badge nodes */
+.tech-node {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  border-radius: 50%;
-  border: 1px solid;
-}
-
-.orbit-ring-1 {
-  width: 180px;
-  height: 180px;
-  border-color: rgba(201, 168, 76, 0.5);
-  animation: orbit-cw 5s linear infinite;
-}
-
-.orbit-ring-2 {
-  width: 280px;
-  height: 280px;
-  border-color: rgba(201, 168, 76, 0.28);
-  animation: orbit-ccw 9s linear infinite;
-}
-
-.orbit-ring-3 {
-  width: 380px;
-  height: 380px;
-  border-color: rgba(201, 168, 76, 0.14);
-  animation: orbit-cw 15s linear infinite;
-}
-
-/* Glowing dot at the top of each ring, orbits with it */
-.orbit-dot {
-  position: absolute;
-  top: -5px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  box-shadow:
-    0 0 6px var(--accent-color),
-    0 0 18px rgba(201, 168, 76, 0.7);
+  animation: float-cw var(--dur) linear infinite;
+  animation-delay: var(--delay);
+  z-index: 2;
+  pointer-events: none;
 }
 
-@keyframes orbit-cw {
-  from { transform: rotateZ(0deg); }
-  to   { transform: rotateZ(360deg); }
+.tech-node.ccw {
+  animation-name: float-ccw;
 }
 
-@keyframes orbit-ccw {
-  from { transform: rotateZ(0deg); }
-  to   { transform: rotateZ(-360deg); }
+.tech-icon-bubble {
+  pointer-events: auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.04);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  cursor: default;
+}
+
+.tech-icon-bubble:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(201, 168, 76, 0.25);
+  transform: scale(1.12);
+}
+
+.tech-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@keyframes float-cw {
+  from { transform: translate(-50%, -50%) rotate(0deg)   translateY(calc(-1 * var(--r))) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg) translateY(calc(-1 * var(--r))) rotate(-360deg); }
+}
+
+@keyframes float-ccw {
+  from { transform: translate(-50%, -50%) rotate(0deg)    translateY(calc(-1 * var(--r))) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(-360deg) translateY(calc(-1 * var(--r))) rotate(360deg); }
 }
 
 /* ── Secret card (easter egg) ── */
@@ -398,11 +397,14 @@
 /* ── Responsive ── */
 @media (max-width: 1100px) {
   .hero-inner { gap: 2.5rem; }
-  .hero-visual { width: 340px; height: 340px; }
-  .orbit-scene { width: 300px; height: 300px; perspective: 700px; }
-  .orbit-ring-1 { width: 130px; height: 130px; }
-  .orbit-ring-2 { width: 200px; height: 200px; }
-  .orbit-ring-3 { width: 270px; height: 270px; }
+  .hero-visual { width: 420px; height: 420px; }
+  .orbit-scene { width: 380px; height: 380px; }
+  .flat-ring-1 { width: 150px; height: 150px; }
+  .flat-ring-2 { width: 234px; height: 234px; }
+  .flat-ring-3 { width: 322px; height: 322px; }
+  .tech-node--inner { --r: 75px; }
+  .tech-node--mid   { --r: 117px; }
+  .tech-node--outer { --r: 161px; }
 }
 
 @media (max-width: 768px) {
@@ -428,11 +430,16 @@
   .hero-divider { align-self: center; }
   .hero-ctas { flex-wrap: wrap; justify-content: center; }
 
-  .hero-visual { width: 170px; height: 170px; order: -1; }
-  .orbit-scene { width: 140px; height: 140px; perspective: 500px; }
-  .orbit-ring-1 { width: 60px; height: 60px; }
-  .orbit-ring-2 { width: 92px; height: 92px; }
-  .orbit-ring-3 { width: 124px; height: 124px; }
+  .hero-visual { width: 230px; height: 230px; order: -1; }
+  .orbit-scene { width: 210px; height: 210px; }
+  .flat-ring-1 { width: 120px; height: 120px; }
+  .flat-ring-2 { width: 180px; height: 180px; }
+  .flat-ring-3 { display: none; }
+  .tech-node--inner { --r: 55px; }
+  .tech-node--mid   { --r: 85px; }
+  .tech-node--outer { display: none; }
+  .tech-icon-bubble { width: 32px; height: 32px; border-radius: 8px; }
+  .tech-icon-img    { width: 18px; height: 18px; }
   .secret-card { width: 195px; padding: 1.4rem 1.1rem 1rem; }
   .secret-flags { font-size: 0.95rem; }
 }
