@@ -3,11 +3,9 @@ export const SKILLS =[
         title:"Front-End",
         icon:"./images/frontend.png",
         skills : [
-            {skill : "HTML5", percentage:"80%"},
-            {skill : "CSS3", percentage:"80%"},
-            {skill :"JavaScript", percentage:"70%"},
             {skill :"React.js", percentage:"70%"},
-            {skill :"Flutter",percentage:"50%"}
+            {skill :"Next.js", percentage:"60%"},
+            {skill :"Flutter", percentage:"50%"},
 
         ],
     },
@@ -18,8 +16,9 @@ export const SKILLS =[
         skills : [
             {skill : "Laravel", percentage:"55%"},
             {skill : "ASP.NET", percentage:"60%"},
-            
-        
+            {skill : "Spring Boot", percentage:"55%"},
+            {skill : "Express.js", percentage:"55%"},
+
         ],
     },
 

@@ -80,7 +80,6 @@
 .timeline-item.left {
   left: 0;
   padding-right: 3rem;
-  text-align: right;
 }
 
 /* dot sits on the right edge, centered on the line */
@@ -172,11 +171,6 @@
   flex-wrap: wrap;
 }
 
-/* For right-aligned (left cards), reverse the header order */
-.timeline-item.left .timeline-card-top {
-  flex-direction: row-reverse;
-}
-
 /* ── Company icon ── */
 .exp-icon {
   width: 46px;
@@ -241,13 +235,9 @@
 .exp-meta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 0.2rem;
   flex-shrink: 0;
-}
-
-.timeline-item.right .exp-meta {
-  align-items: flex-start;
 }
 
 .exp-duration {
@@ -277,10 +267,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-}
-
-.timeline-item.left .exp-tags {
-  justify-content: flex-end;
 }
 
 .exp-tag {
@@ -327,18 +313,6 @@
   .timeline-item.left .timeline-card::after,
   .timeline-item.right .timeline-card::before {
     display: none;
-  }
-
-  .timeline-item.left .timeline-card-top {
-    flex-direction: row;
-  }
-
-  .timeline-item.left .exp-meta {
-    align-items: flex-start;
-  }
-
-  .timeline-item.left .exp-tags {
-    justify-content: flex-start;
   }
 
   .timeline-item.left .timeline-card,

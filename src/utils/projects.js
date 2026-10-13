@@ -1,8 +1,31 @@
 export const PROJECT_DETAILS = [
   {
+    slug: 'paymera',
+    title: 'Paymera',
+    cover: `${process.env.PUBLIC_URL}/images/paymera-logo-mini.png`,
+    mobile: true,
+    screenshots: [
+      { src: `${process.env.PUBLIC_URL}/images/paymera1.png`, caption: 'Home & Linked Cards' },
+      { src: `${process.env.PUBLIC_URL}/images/paymera2.png`, caption: 'Add National Bank Card' },
+      { src: `${process.env.PUBLIC_URL}/images/paymera3.png`, caption: 'Purchase' },
+      { src: `${process.env.PUBLIC_URL}/images/paymera4.png`, caption: 'Pay Bills' },
+      { src: `${process.env.PUBLIC_URL}/images/paymera5.png`, caption: 'Transfer Money' },
+      { src: `${process.env.PUBLIC_URL}/images/paymera6.png`, caption: 'Balance & Limits' },
+      { src: `${process.env.PUBLIC_URL}/images/paymera7.png`, caption: 'Vouchers' },
+    ],
+    summary: 'Digital wallet app for national bank cards, payments, and transfers.',
+    description:
+      'Paymera is a digital payments app that lets users link their national bank cards and manage everyday finances from one place. Users can make purchases, pay bills, transfer money, check their card balance and spending limits in real time, and buy or redeem vouchers. I worked across several of the backend services that power the app, built with Laravel, ASP.NET Core, and Spring Boot, developing secure REST APIs for card management, transactions, and payment flows, and integrating them into a single, reliable payments experience.',
+    role: 'Backend Developer (Laravel, ASP.NET Core, Spring Boot)',
+    technologies: ['Laravel', 'ASP.NET Core', 'Spring Boot', 'REST APIs'],
+    liveUrl: '',
+    repoUrl: null
+  },
+  {
     slug: 'zamil',
     title: 'Zamil',
     cover: `${process.env.PUBLIC_URL}/images/zamillogo.jpg`,
+    mobile: true,
     screenshots: [
       { src: `${process.env.PUBLIC_URL}/images/announcements.jpg`, caption: 'Home Announcements' },
       { src: `${process.env.PUBLIC_URL}/images/chatbot.jpg`, caption: 'AI Chatbot' },

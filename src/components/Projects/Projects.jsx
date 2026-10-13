@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
+    id: "project-paymera",
+    title: "Paymera",
+    description:
+      "Digital payments app to link national bank cards and purchase, pay bills, transfer money, check balances and limits, and redeem vouchers — backed by Laravel, .NET, and Spring services.",
+    tags: ["Laravel", "ASP.NET Core", "Spring Boot"],
+    imageUrl: `${process.env.PUBLIC_URL}/images/paymera-logo-mini.png`,
+    ProjectUrl: "",
+    detailsSlug: "paymera",
+  },
+  {
     id: "project-zamil",
     title: "Zamil",
     description:

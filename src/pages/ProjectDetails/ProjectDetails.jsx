@@ -8,7 +8,7 @@ const ProjectDetails = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = findProjectBySlug(slug);
-  const isMobileScreenshots = project && project.slug === 'zamil';
+  const isMobileScreenshots = project && project.mobile;
 
   if (!project) {
     return (

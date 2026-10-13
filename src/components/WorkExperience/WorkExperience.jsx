@@ -7,7 +7,7 @@ const experiences = [
     company: "Paymera E-Payment",
     duration: "Dec 2025 – Present",
     location: "Damascus",
-    iconUrl: null,
+    iconUrl: `${process.env.PUBLIC_URL}/images/paymera-logo-mini.png`,
     description:
       "Work across multiple financial systems built on .NET Core, Spring Boot, and Laravel, contributing to both backend services and frontend interfaces. Contribute to product decisions and feature delivery across 4,000+ active users. Use GitLab end-to-end for task management, code reviews, merge requests, and deployments.",
     tags: [".NET Core", "Spring Boot", "Laravel", "GitLab"],
